@@ -1,0 +1,56 @@
+/*
+ * Name:            结构信息
+ * 
+ * Description:     结构信息模块
+ * 
+ * Component:   `vg-container`,`vg-header`, `vg-main`, `vg-footer`, `vg-aside`
+ * 
+ * Satus:       `vg-vertical`, `vg-direction`     
+ */
+
+/********** 默认结构样式 **********/
+.vg-container{
+  position:relative;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  // min-width: 1100px;
+  flex-direction: column;
+}
+
+/**********文档结构样式**********/
+.container{
+  margin: 0 auto;
+  max-width: 1280px;
+  height: 100%;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1200px;
+  }
+}

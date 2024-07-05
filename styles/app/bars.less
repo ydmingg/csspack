@@ -1,0 +1,38 @@
+//导航栏
+.vg-app-bar{
+    #flex.middle();
+    #border_radius(100%;54px;@color-brand-1;0);
+    position: relative;
+    color: @color-font-white;
+    transition: background 0.25s;
+    &_title{
+        #flex.col();
+        flex: 1;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 0 #space[base];  
+        #font.font18();
+    }
+    &_left,&_right {
+        #flex.row();
+        height: 100%;
+        z-index: 2;
+        >.icons{
+            padding: #space[small];
+            font-size: 5.7vw;
+        }
+    }
+    &_left {
+        position: absolute;
+        top: 0;
+        left: 6px;
+    }
+
+    &_right{
+        position: absolute;
+        top: 0;
+        right: 6px;
+    }
+}
+

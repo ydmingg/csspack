@@ -1,0 +1,202 @@
+// 资料
+.pages-material{
+    // 文件预览
+    &-viewfiles{
+        overflow: hidden;
+        position: relative;
+        height: 0;
+        padding-bottom: 75%;
+        background-color: @gray-100;
+        .images{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: translate(-50%, -50%);
+            >img{
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                -webkit-user-drag: none;
+            }
+            // .folders{
+            //     position: absolute;
+            //     img{
+            //         max-width: 100%;
+            //         max-height: 100%;
+            //         object-fit: cover;
+            //         -webkit-user-drag: none;
+            //         filter: grayscale(1);
+            //         opacity: 0.4;
+            //     }
+            //     &::after{
+            //         content: '文件不可预览';
+            //         display: block;
+            //         font-size: @font-size-12;
+            //         color: @gray-500;
+            //         text-align: center;
+            //     }
+            // }
+        }
+        
+        
+    }
+    &-viewspecifics{
+        user-select: none;
+        margin-top: 0.75rem;
+        .titles{
+            padding: 0.5rem 0;
+            font-size: @font-size-14;
+            font-weight: @font-weight-lg;
+            color: @gray-800;
+        }
+        .specifics{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 0.25rem 0.75rem;
+            margin-bottom: 0.75rem;
+            .items{
+                font-size: @font-size-12;
+                color: @gray-500;
+                span{
+                    color: @gray-800;
+                    font-weight: @font-weight-lg;
+                }
+            }
+        }
+    }
+    // 文件移动
+    &-movefiles{
+        .filesall{
+            max-height: 240px;
+            overflow:hidden auto;
+
+        }
+        .item{
+            display: flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 0.5rem;
+            background-color: @white;
+            border-radius: @border-radius-md;
+            cursor: pointer;
+            transition: background-color .2s ;
+            .images{
+                width: 28px;
+                height: 28px;
+                margin-inline-end: 0.5rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                border-radius: @border-radius-max;
+            }
+            .name{
+                font-size: @font-size-14;
+                color: @gray-800;
+                .text-truncate();
+            }
+            &:not(.disabled):hover{
+                background-color: @gray-100;
+            }
+            &.disabled{
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+                -moz-filter: grayscale(100%);
+                -ms-filter: grayscale(100%);
+                -o-filter: grayscale(100%);
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+// 素材-预览
+.webmanage-project-material{
+    height: 100%;
+    .webmanage-project-tips{height: initial;}
+    .webmanage-project-tags{
+        .webmanage-project-tags-content{
+            .vg-btn{
+                background-color: @gray-50;
+                color: @gray-600;
+                border-color: @gray-50;
+                &:not(.select).hover{color: @gray-800;}
+                &.select{
+                    background-color: rgba(@brand, .1)!important;
+                    color: @brand!important;
+                    border-color: rgba(@brand, .1)!important;
+                }
+            }
+        }
+        .webmanage-project-tags-button{transform: rotate(180deg);}
+        &:not(.select){
+            .webmanage-project-tags-content{flex-wrap: initial;}
+            .webmanage-project-tags-button{transform: rotate(0);}
+        }
+    }
+    .project-material-contents{
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
+        // grid-template-rows: masonry;
+
+        gap: 1.25rem;
+        // height: 2186px;
+        // &:after {
+        //     content: '';
+        //     display: block;
+        //     flex-grow: 99999;
+        // }
+        
+
+        .cards-content-material{
+            flex-grow: 1;
+            background-color: @gray-50;
+            // //hover
+            // &:hover .tips{
+            //     .toolicons{
+            //         visibility: visible;
+            //         opacity: 1;
+            //     }
+            //     .vg-avatar-bg{
+            //         display: none;
+            //     }
+            // }
+            // &:not(.select):hover::after{
+            //     // background-color: @gray-100;
+            //     display: block;
+            // }
+            // &.select::after{
+            //     // background-color: @gray-100;
+            //     display: block;
+            // }
+        }
+    }
+
+    // 标签管理
+    &-tag-manage{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(17.5rem,1fr));
+        gap: 1.25rem;
+    }
+}
+
+
+
+//兼容小屏幕
+.media-max-desktop({
+    .webmanage-project-material{
+        .project-material-contents{
+            grid-template-columns: repeat(auto-fill,minmax(8.625rem,1fr));
+            gap: 0.75rem;
+        }
+    }
+});

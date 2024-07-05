@@ -1,0 +1,32 @@
+/*
+ *  Name:               微标数
+ * 
+ *  Description:     vg-badge
+ *  
+ *  
+*/
+
+//微标数组件【状态点：null】：@content/@size/@fontWeight/@fontSize/@background/@color，
+#vg-badge(@content:'';@size:0.4375rem;@fontWeight:normal;@top:1px;@right:1px;@bottom:auto;@left:auto;@fontSize:#font.font12();@background:@color-error-1;@color:@color-font-white;){
+    &::after{
+        content: @content;
+        #flex.middle();
+        border-radius: @size;
+        background: @background;
+        #position(absolute;@top;@right;@bottom;@left;@size;@size);
+        #funFont(@fontSize;@color;@fontWeight;@textAlign:center;);
+    }
+}
+
+
+// 小红点微标数
+.vg-badge{
+    #vg-badge();
+}
+
+// 小红点微标数
+.vg-badge-number{
+    #vg-badge(attr(data-number);1rem;@font-blod-large;-7px;-3px;);
+    min-width: 1rem;
+    padding: 0 #space[exsmall];
+}

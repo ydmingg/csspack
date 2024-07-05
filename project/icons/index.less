@@ -1,0 +1,86 @@
+/* Piksel Icons */
+
+// 全局背景
+body{background: var(--icons-line-gradient);}
+
+// Icon MainDOM
+.icons-main{
+  &-titles{
+    user-select: none;
+    padding: 6rem 0 9rem;
+    .titles{font-size: 3.25rem;}
+    .explain{
+      max-width: 45rem;
+    }
+    &-images{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      grid-gap: 1.125rem 1rem;
+      grid-auto-flow: row dense;
+      align-content: start;
+      li{
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 20px;
+        background: rgba(var(--bg-black),10%);
+        font-size: @font-size-24;
+        color: var(--color-gray-800);
+        border-radius: @border-radius-sm;
+        img{width: 96%;}
+      }
+    }
+  }
+  &-contents-icons{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    grid-gap: 1.125rem 1rem;
+    grid-auto-flow: row dense;
+    align-content: start;
+    .preview{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem .5rem;
+      min-height: 9rem;
+      background: transparent;
+      border-radius: .25rem;
+      text-align: center;
+      color: inherit;
+      text-decoration: none;
+      border: 1px solid var(--border-color-200);
+      border-radius: @border-radius-sm;
+      cursor: pointer;
+      transition: .3s border-color;
+      &:hover{
+        border-color: @brand;
+        transition-delay: .25s;
+        color: inherit;
+      }
+      .inner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        color: var(--color-gray-900);
+        font-size: @font-size-24;
+      }
+      .label{
+        max-width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: var(--color-gray-700);
+        font-size: @font-size-13;
+        font-weight: @font-weight-sm;
+        margin-top: 1rem;
+        margin-bottom: -.5rem;
+      }
+    }
+  }
+}

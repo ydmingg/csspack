@@ -1,0 +1,66 @@
+/*
+ * Name:            mesa
+ * 
+ * Description:     列表布局
+ * 
+ * Component:   `vg-mesa-`
+ * 
+ * Satus:        
+*/
+
+.vg-mesa{
+    &-header{
+        #flex.autoFlex(flex;center;space-between;);
+        position: relative;
+        // height: 2.5rem;
+        margin:0 0 #space[default];
+        border-radius: @border-radius-small;
+        .team-header{
+            display: flex;
+            width: 100%;
+            column-gap: #space[default];
+        }
+        .lt{
+            flex: auto;
+            .title{
+                #font.font14();
+                font-weight:@font-blod-medium;
+            }
+        }
+        .rgt{
+            display: flex;
+            line-height: normal;
+            
+            .vg-search{
+                grid-template-columns: 1fr 2rem;
+                height: 32px;
+            }
+            button{
+                height: 32px;
+                color: @color-font-3;
+                &:hover{
+                    border-color: @color-info-2;
+                    color: @color-font-2;
+                }
+            }
+        }
+        .vg-search{
+            max-width: 300px;
+        }
+        //产品table头部（选择品牌；选择产品；添加产品）
+        .vg-select{
+            width: 10rem;
+            margin-inline-end: #space[exlarge];
+        }
+    }
+    &-body{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: scroll;
+        position: relative;
+    }
+    &-footer{
+        border-radius: @border-radius-small;
+    }    
+}

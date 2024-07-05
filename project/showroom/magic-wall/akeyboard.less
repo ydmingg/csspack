@@ -1,0 +1,58 @@
+// 系统键盘样式
+.akeyboard-keyboard {
+    width        : 100%;
+    background   : var(--bg-gray-100);
+    backdrop-filter: blur(10px);
+    box-sizing   : border-box;
+    // row
+    &-innerKeys {
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        text-align: center;
+        &:nth-of-type(4),
+        &:last-of-type{
+            grid-template-columns: repeat(14, 1fr);
+        }
+    }
+
+    &-keys {
+        padding: calc(1 / 96 * 20vw);
+        border-radius: calc(1 / 96 * 20vw);
+        background   : var(--bg-white);
+        display      : inline-block;
+        font-size    : calc(1 / 96 * 32vw);
+        color: var(--flowing-color-1A1A19-90);
+        line-height: @line-height;
+        text-align   : center;
+        box-sizing   : border-box;
+        margin       : calc(1 / 96 * 8vw);
+        cursor       : pointer;
+        user-select  : none;
+        &:hover {
+            background: #1e9fff;
+            color     : var(--color-white);
+        }
+        &-Delete{grid-column: 14/16;}
+        &-Tab  {grid-column: 1/3;}
+        &-Caps {grid-column: 1/3;}
+        &-Enter{grid-column: 14/16;}
+        &-Shift{
+            grid-column: 1/3;
+            &:last-of-type{grid-column: 13/15;}
+        }
+        &-Space{grid-column: 4/12;}
+    }
+
+    &-fixedBottomCenter {
+        width        : 100% !important;
+        position     : fixed;
+        bottom       : 0;
+        left         : 0;
+        border-radius: 0 !important
+    }
+}
+
+.keyboard-keyboard-keys-focus {
+    background: #1e9fff;
+    color     : var(--color-white);
+}

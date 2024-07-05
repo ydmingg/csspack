@@ -1,0 +1,93 @@
+.vg-phone-container{
+    height: 100vh;
+    .vg-tag-bar{
+        height: 2.75rem;
+        border-bottom: 1px solid @gray-50;
+
+    }
+    .file-cloud-breadcrumbs{
+        height: 2.75rem;
+    }
+    .file-cloud-content{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
+        grid-gap: 1rem;
+        grid-auto-flow: row dense;
+        align-content: start;
+        padding-bottom: 2rem;
+        .cards-content-files .vg-radio{
+            color: @gray-400;
+        }
+
+    }
+    
+    .vg-add-button{
+        position: fixed;
+        bottom: 4rem;
+        right: 2rem;
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+}
+
+
+
+.vg-popout-container{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(@black,.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 6;
+    &-content{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: @white;
+        border-radius: 0.75rem 0.75rem 0 0;
+        // transform: translateY(100%);
+        transition: all .3s;
+        animation: phone_bottom_top .44s ;
+    }
+    &-dialog{
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        width: calc(100% - 2rem);
+        max-width: 336px;
+        // transform: translate(-50%,-50%);
+        border-radius: 0.75rem;
+        transition: all .3s;
+        animation: phone_opacity_view .3s;
+
+        &-body .vg-input input{
+            height: 2.75rem;
+            padding: 0 1rem;
+        }
+        &-footer .buttons{
+            max-width: 7.875rem;
+            height: 2.625rem;
+            &[disabled]{
+                background-color: @gray-50 !important;
+                color: @gray-400 !important;
+            }
+        }
+    }
+}
+
+
+
+// animation
+@keyframes phone_bottom_top {
+    0%{transform: translateY(100%);}
+    100%{transform: translateY(0%);}
+}
+@keyframes phone_opacity_view {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}

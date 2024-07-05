@@ -1,0 +1,44 @@
+// switch 开关
+.vg-switch{
+    --vg-switch-width: 2.5rem;
+    --vg-switch-height: #space[large];
+    --vg-switch-button-size: #space[default];
+
+    #font.font14();
+    position: relative;
+    display: inline-flex;
+    height: 2rem;
+    align-items: center;
+    .switch-input{
+        #position(absolute;auto;auto;auto;auto;0;0;);
+        opacity: 0;
+        margin: 0;
+    }
+    .switch-core{
+        #border_radius(var(--vg-switch-width);var(--vg-switch-height);@color-info-2;var(--border-radius-maxsize););
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        border:1px solid @color-border-2;
+        box-shadow:@border-shadow-inset-small;
+        cursor: pointer;
+        transition:all .3s ease;
+        .switch-active{
+            #position(absolute;1px;auto;auto;1px;var(--vg-switch-button-size);var(--vg-switch-button-size););
+            #flex.middle();
+            #font.font12();
+            #border_radius(var(--vg-switch-button-size);var(--vg-switch-button-size);@color-font-white;var(--border-radius-maxsize););
+            box-shadow: @border-shadow-mini;
+            transition:all .3s ease;
+        }
+    }
+    &.active .switch-core{
+        border-color:  @color-brand-1;
+        background:  @color-brand-1;
+        .switch-active{
+            left: 100%;
+            margin-left: calc(-1px - var(--vg-switch-button-size));
+            color: @color-brand-1;
+        }
+    }
+}

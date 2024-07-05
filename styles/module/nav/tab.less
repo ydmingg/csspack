@@ -1,0 +1,89 @@
+/********** tab切换默认效果 **********/
+.vg-tab{
+    &-head{
+        position: relative;
+        display: flex;
+        .vg-tab-item{
+            #flex.row();
+            #funFont(#font.font14();@color-font-2-1;@font-blod-default;);
+            position: relative;
+            margin-inline-end: #space[default];
+            padding-block-end:#space[small];
+            cursor: pointer;
+            transition: color #time[default];
+            &.tableftline::before{
+                content: '';
+                height: 60%;
+                width: 1px;
+                margin-inline-end: #space[default];
+                background: @color-info-2;
+            }
+            &::after{
+                #position(absolute;auto;0;-1px;0;100%;auto;);
+                content:"";
+                display: none;
+                margin:auto;
+                margin: initial;
+                border-bottom:2px solid @color-brand-1;;
+                border-radius: @border-radius-large;
+                z-index: 2;
+                transition: .3s;
+                animation: dss ease .4s;
+            }   
+            &:hover{
+                color: @color-font-2;
+            }
+        }
+        // 点击时添加active
+        .router-link-active,
+        .router-link-exact-active{
+            color: @color-font-1!important;
+            font-weight:@font-blod-base;
+            &::after{
+                display: block;
+            }
+            &.tableftline::after{
+                left: 17px;
+                width: calc(100% - 17px);
+                animation: dss2 ease .4s;
+            }
+        }
+        .active{
+            color: @color-font-1;
+            font-weight:@font-blod-medium;
+            &::after{
+                display: block;
+            }   
+        }
+    }
+    .vg-tab-content .panel{
+        display: block;
+    }
+}
+
+//后台管理tab样式
+.vg-tab-design{
+    #flex.row();
+    &-items{
+        #flex.row();
+        #funFont(#font.font14();@color-font-3;700;);
+        position: relative;
+        padding-bottom: 8px;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        margin-right: 32px;
+        line-height: 24px;
+        cursor: pointer;
+        &.select{
+            #funFont(#font.font18();@color-font-1;normal;);
+            margin-right: 24px;
+            &::after{
+                #position(absolute;auto;auto;0;50%;100%;3px;);
+                #border_radius(100%;3px;@color-brand-1;2px;);
+                content: "";
+                transform: translateX(-50%);
+            }
+        }
+    }
+}

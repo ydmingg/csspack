@@ -1,0 +1,53 @@
+/*
+ * Name:            card卡片
+ * 
+ * Description:     卡片结构
+ * 
+ * Component:   `vg-card`
+ * 
+ * Satus:        
+*/
+
+/********** 卡片默认效果 **********/
+.vg-card{
+    #border_radius(auto;auto;@color-bg-1;@border-radius-large;);
+    border: 1px solid @color-border-2;
+
+    .vg-card-header{
+        //暂留位置
+    }
+    .vg-card-body{
+        #flex.row();
+        position: relative;
+        padding: calc(#space[exlarge];) #space[large];
+        
+    }
+
+    .vg-card-footer{
+        //暂留位置
+
+    }
+}
+
+
+.vg-card.pi-banner{
+    #flex.middle();
+    #border_radius(
+        100%;100%;
+        linear-gradient(to bottom, #13c483 40%, #3ce0b4 100%,);
+        calc(@border-radius-large * 2);
+    );
+    flex-direction: column;
+    border: none;
+    color: @color-font-white;
+    .banner-title{
+        margin-bottom: 40px;
+        font-size: 40px;
+        font-weight: @font-blod-base;
+    }
+    .banner-span{
+        #font.font16();
+        letter-spacing: 2px;
+    }
+
+}

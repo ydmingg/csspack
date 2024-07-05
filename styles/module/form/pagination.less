@@ -1,0 +1,42 @@
+//
+//***************************** pagination 分页器
+//
+.vg-pagination{
+    #flex.autoFlex(flex;center;flex-end;);
+    #funFont(#font.font16();@color-font-3;normal;);
+    position: relative;
+    // padding:calc(#space[default];) 0;
+    .pageNo{
+        padding: 0 #space[small];
+        &:first-of-type{color:@color-brand-1;}
+    }
+    input{
+        #border_radius(3em;2rem;@color-info-3;@border-radius-default;);
+        padding: 0 #space[small];
+        margin-inline-start: #space[default];
+        color: @color-font-3;
+        border: 0;
+    }
+    button{
+        height: 2rem;
+        width: 2rem;
+        padding: 0;
+        margin-inline-start: #space[small];
+        background-color: @color-info-3;
+        #font.font16();
+    }
+    button:first-of-type{margin-inline-end: #space[small];}
+    button:nth-of-type(3){
+        #funFont(#font.font14();@color-brand-3;normal;);
+        margin-inline-start: #space[default];
+        background-color: transparent;
+    }
+
+    //数据length 
+    .pagination-info{
+        #funFont(#font.font14();@color-font-3;normal;);
+        position: absolute;
+        left: 0;
+        cursor:auto;
+    }
+}

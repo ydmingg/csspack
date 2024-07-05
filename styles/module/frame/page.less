@@ -1,0 +1,84 @@
+/*
+ * Name:            page内容
+ * 
+ * Description:     页面主体
+ * 
+ * Component:   `vg-page`
+ * 
+ * Satus:        
+*/
+
+//Page Style
+.vg-page{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.page-tips{
+    #funFont(#font.auto(24px);@color-font-1;@font-blod-base;);
+    #font.auto(24px);
+    margin-bottom: 16px;
+    // .title{
+    //     #flex.row();
+    //     gap:#space[exsmall];
+    //     margin-block-end: #space[default];
+    //     color: @color-font-1;
+    //     i{#funFont(#font.font16();@color-font-4;normal;);}
+    // }
+    .title h1{font-size: 1.5rem;}
+}
+
+.proFills{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+//page de header
+.page-header{
+    #flex.row();
+    min-height: 2rem;
+    margin-block-end:#space[default];
+    color: @color-font-2-1;
+    // border-bottom: 1px solid @color-border-3;
+    >*:first-child{flex:1;}
+    >button{
+        #font.font13();
+        padding: 5px 16px;
+        color: @color-font-2;
+    }
+    >.vg-input{
+        min-width: calc(240px - 12px);
+        max-width: calc(280px - 12px);
+    }
+    &-login{
+        display: block;
+        .vg-h{
+            font-weight: bolder;
+        }
+        >p{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: @color-font-4;
+            #font.font16();
+            margin-top: 12px;
+            .text{
+                // margin-left: 0.25rem
+                color: @color-brand-1;
+                cursor: pointer;
+                &:hover{
+                    color: darken(@color-brand-1, 6%);
+                }
+            }
+        }
+    }
+}
+//page de body
+.page-body{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 375px;
+}
+

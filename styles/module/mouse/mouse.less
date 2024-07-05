@@ -1,0 +1,48 @@
+/*
+ * Name:           mouseright
+ * 
+ * Description:    鼠标右键
+ * 
+ * Satus:        
+*/
+
+#vg-mouseright-styles(@flex;@minWidth;@width;@padding;@borderRadius){
+    @flex();
+    min-width:@minWidth;
+    width: @width;
+    padding: @padding;
+    border-radius:@borderRadius;
+}
+
+//基础鼠标右键菜单栏样式
+.vg-mouseright{
+    
+    //定义了鼠标右键弹窗的大小样式
+    #vg-mouseright-styles(#flex.autoFlex(inline-flex;stretch;center);100px;fit-content;#space[small];@border-radius-large;);
+    
+    //定义了鼠标右键弹窗的位置信息
+    #position(absolute;auto;0;0;auto;fit-content;fit-content);
+
+    flex-wrap: wrap;
+    gap:calc(#space[exsmall];) 0;
+    background-color: @color-font-white;
+    white-space: nowrap;
+    box-shadow: @border-shadow-default;
+    z-index: 2;
+    &-item{
+        //定义了鼠标右键弹窗中item的大小样式
+        #vg-mouseright-styles(#flex.col();none;100%;calc(#space[exsmall];) #space[base];@border-radius-default;);
+
+        //定义 ::hover 效果样式
+        #initialHover(inherit;@color-font-2;@color-brand-6;@color-font-white);
+        #funFont(#font.font14();@color-font-2;@font-blod-default;);
+
+        cursor: pointer;
+
+    }
+}
+
+//固定位置右键菜单栏显示
+.vg-mouseright.is-select{
+    transform: translate(40%,20%);
+}

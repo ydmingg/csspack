@@ -1,0 +1,22 @@
+/*
+ * Name:            enterprise
+ * 
+ * Description:    企业管理样式
+ * 
+ * Satus:        
+*/
+
+.del-enterprise-image{
+    #flex.middle();
+    #funFont(#font.font32();@color-font-white;@font-blod-large;);
+    background: @color-brand-1;
+    border-radius: var(--border-radius-maxsize);
+    &::after{
+        content: attr(data-name);
+        line-height:44px;
+        font-size: 44px;
+    }
+    img{
+        display: none;
+    }
+}

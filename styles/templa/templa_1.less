@@ -1,0 +1,418 @@
+/*
+ * Name:            templa
+ * 
+ * Description:    模板一
+ * 
+ * Satus:        
+*/
+
+//templa pages
+.templa-page{
+    user-select: none;
+    -webkit-user-select:auto;
+    -webkit-touch-callout:none; 
+    background-color:#1C2021;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.templa-header{
+    #flex.middle();
+    #position(sticky;0;auto;auto;0;100%;4.375rem;);
+    background:#1C2021 ;
+    color: @color-font-white;
+    z-index: 2;
+    border-bottom: 1px solid #404040;
+    img{height: 1.75rem; }
+}
+.templa-banner{
+    #flex.row();
+    height: 13.5rem;
+    width: 100%;
+    padding:0 #space[exlarge];
+    background: url("https://book.funxdata.com/public/templa/templa_1.png") repeat center/cover ;
+    color: @color-font-white;
+    h1{
+        #font.font32();
+        font-weight: @font-blod-large;
+        #animation.anima(leftRightAnima;1s);
+    }
+    p{
+        position: relative;
+        margin-block-start: #space[default];
+        #font.font18();
+        color: #cdcdcd;
+        overflow:hidden;
+        #animation.anima(leftRightAnima;1s);
+    }
+}
+.templa-search{
+    overflow: hidden;
+    padding: calc(#space[large];) #space[exlarge];
+    color: @color-font-white;
+    .search{
+        #flex.row();
+        input{
+            flex: 1;
+            height: 40px;
+            padding: 0 12px;
+            #font.font14();
+            font-weight: @font-blod-medium;
+            border-radius: 0;
+            border: 1px solid #555555;
+            line-height: 32px;
+            &::placeholder{
+                color: #555555;
+            }
+        }
+        button{
+            background-color: #555555;
+            border-radius: 0;
+            &:hover{
+                background-color: #555555;
+            }
+            
+        }
+    }
+    .item{
+        margin-block-start:#space[exlarge];
+        
+    }
+    .image{
+        width: 100%;
+        height: 5.8125rem;
+        border: 1px solid #3D3C3C;
+        #animation.anima(topBottonAnima;1s);
+        img{
+            #imageRepeat(100%;100%;cover)
+        }
+    }
+    .rightText{
+        padding:calc(#space[base];) 0 0 #space[large];
+        #animation.anima(topBottonAnima;1s);
+        .link{
+            margin-block-start: #space[exsmall];
+            #font.font14();
+            opacity: .6;
+        }
+    }
+}
+.templa-new{
+    padding:calc(#space[base];) #space[exlarge]; 
+    color: @color-font-white;
+    .imagepro{
+        height:9.875rem;
+        margin-block-start: #space[base];
+        .lt{
+            height: 100%;
+            margin-inline-end: #space[exsmall];
+            border: 1px solid #3D3C3C;
+            img{
+                #imageRepeat(100%;100%;cover)
+            }
+        }
+        .rgt{
+            margin-inline-start: #space[exsmall];
+            display: grid;
+            height: 100%;
+            width: calc(100% - #space[exsmall];);
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:'topp topp'
+                                'botleft botright';
+            grid-gap:#space[small];
+            .image{
+                overflow: hidden;
+                width: 100%;
+                border: 1px solid #3D3C3C;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                &:nth-child(1){
+                    grid-area:topp ;
+                    
+                }
+                &:nth-child(2){
+                    grid-area:botleft ;
+                }
+                &:nth-child(3){
+                    grid-area: botright;
+                }
+            }
+        }
+    }
+}
+
+.templa-footer{
+    #flex.middle();
+    padding: calc(#space[exlarge];) 0 3rem;
+    
+    
+    span{
+        overflow: hidden;
+        #flex.middle();
+        display:inline-block;
+        color: @color-font-white;
+        border: 1px solid #555555;
+        border-radius: 99px;
+    }
+    button{
+        #font.font14();
+        height: 2.75rem;
+        &:hover{
+            background-color: transparent;
+        }
+    }
+}
+
+// 列表部分
+.templa-prolist{
+    padding: calc(#space[large];) #space[exlarge];
+    color: @color-font-white;
+    .item{
+        display: block;
+        padding: calc(#space[large];) 0 ;
+        border-bottom: 1px solid #555555;
+        #font.font18();
+        .image{
+            width: 100%;
+            height:3.5rem;
+            #animation.anima(topBottonAnima;1s);
+            img{
+                #imageRepeat(100%;100%;cover);
+            }
+        }
+        p , span{
+            #flex.row();
+            height:3.5rem;
+            #animation.anima(topBottonAnima;1s);
+            line-height: 3.5rem;
+        }
+        p{
+            display: block;
+            #textEllipsis();
+            margin:0 #space[large];
+            span{
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+//详情部分
+.templa-proderails{
+    user-select: none;
+    #flex.middle();
+    background: #000000;
+    img,video{
+        width: 100%;
+    }
+}
+.h1Title{
+    padding: 6.25rem 0;
+    margin: 0;
+    background: #000000;
+    #font.font32();
+    font-weight: @font-blod-large;
+    color:@color-font-white;
+    text-align: center; 
+    span{
+        #animation.anima(leftRightAnima;1s);
+    }
+}
+.templa-proderails-pro{
+    padding-block-end: 7.5rem;
+    background: linear-gradient(#000 28% ,white 28%);
+    .image{
+        width: 18.75rem;
+        margin: 0 auto #space[exlarge];
+        #animation.anima(leftRightAnima;1s);
+    }
+    .numpro{
+        display: block;
+        width: 10.625rem;
+        margin:auto;
+        margin-block-end: #space[large];
+        text-align: center;
+        #font.font14();  
+        color: #000000;      
+        img{
+            #imageRepeat(100%;100%;contain);
+        }
+        p:first-child{
+            margin-block-end: #space[exsmall];
+        }
+    }
+}
+.templa-proderails-field{
+    padding: 5rem #space[exlarge];
+    background: #000000;
+    color:@color-font-white;      
+    .field{
+        margin-block-end: #space[exlarge];
+        text-align: center;
+        font-size: 1.375rem;
+    }
+    .numpro{
+        #flex.col();
+        height: 14px;
+        margin: calc(#space[base];) 0 #space[large];
+        img{height: 100%;}
+    }
+    .text{
+        margin:0 calc(#space[exlarge];) 50px;
+        text-align: center;
+        #font.font14();
+        line-height: 1.7;
+        color: #808080;
+        p{
+            #font.font12();
+        }
+    }
+    .item{
+        margin-block-end: #space[exlarge];
+        text-align: center;
+        #animation.anima(leftRightAnima;1s);
+        p{
+            #font.font12();
+            color: #808080;
+        }
+    }
+    .image{
+        #flex.middle();
+        width: 100%;
+        height: 3rem;
+        margin-block-end: #space[default];
+        img{
+            max-width:3.75rem;
+            max-height:3.75rem;
+        }
+    }
+    //英文版面样式
+    &.lang-en{
+        .item p{
+            font-size: 10px;
+            padding: 0 #space[base];
+        }
+    }
+}
+
+//特征和技术支持
+.templa-proderails_feature{
+    .image{
+        height: 1.5rem;
+        margin-block-end: #space[base];
+        img{
+            height: 100%;
+        }
+    }
+    //英文版面样式
+    &.lang-en{
+        .text{margin: 0;}
+        .text >p{
+            text-align: left;
+        }
+    }
+}
+
+.templa-proIntroduce{
+    padding: 100px 0;
+    background: white;
+    text-align: center;
+    .title{
+        padding: 0 calc(#space[exlarge];);
+        text-align: center;
+        #font.font14();
+        color: #555555;
+        .top{
+            margin-block-end: #space[large];
+            font-size: 1.375rem;
+            font-weight: @font-blod-base;
+            color: 000;
+            p{
+                margin-block-start: #space[default];
+                #font.font16();
+                color: #A8C22D;
+                font-weight: @font-blod-default;
+            }
+        }
+        p{
+            line-height: 1.6rem;
+        }
+    }
+    .titTitle{
+        margin-block-start: 3.125rem;
+    }
+    .down{
+        display: block;
+        width: 0.9375rem;
+        margin:calc(#space[large];) auto;
+        img{
+            width:100%;
+        }
+    }
+    .text{
+        display: block;
+        margin: calc(#space[exlarge];) calc(#space[exlarge];);
+        #font.font14();
+        color: #555555;
+        p{
+            line-height: 1.8;
+            text-align: left;
+        }
+    }
+    &.lang-en{
+        .title p{
+            text-align: left;
+        }
+    }
+}
+.templa-proFooter{
+    position: relative;
+    padding: 0 calc(#space[exlarge];) 5rem;
+    background: @color-font-white;
+    .proFooter{
+        display: block;
+        padding:calc(#space[large];) #space[default];
+        box-shadow: @border-shadow-default;
+        border-radius:@border-radius-large ;
+    }
+    .image{
+        width: 3.125rem;
+        height: 3.75rem;
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .rightText{
+        #flex.row();
+        flex-wrap: wrap;
+        height: 3.75rem;
+        span{
+            display: block;
+            width: 100%;
+            &>div{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+    p{
+        color: #7F7F7F;
+    }
+    &.lang-en{
+        .rightText span {
+            > div,p{
+                font-size: 10px;
+            }
+        }
+        
+    }
+}

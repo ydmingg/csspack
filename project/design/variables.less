@@ -1,0 +1,49 @@
+//
+//变化类
+// --------------------------------------------------
+
+
+@gray-base:              #000;
+@gray-dark:              #3a3a3a;
+@gray-dark-1:              #3c3c3c;
+
+@gray:                   #494949; 
+@gray-light:             #545454;
+@gray-light-1:             #6E6E6E;
+@gray-light-2:             #777777;
+@gray-aaa:            #A6A6A6;
+@gray-bbb:            #bababa;
+@gray-ddd:            #bababa;
+
+
+@border-color:#262626;
+@border-color-A:#313131;
+@border-color-A1:#3b3b3b;
+@border-color-A2:#545454;
+@border-color-B:#666666;
+@border-color-c:#c4c4c4;
+
+
+@border-radius: 4px;
+@border-radius-10: 0.625rem;
+
+@box-shadow: 2px 3px 12px 0 rgba(@gray-base, 20%); 
+
+
+
+
+::-webkit-scrollbar{
+    width: 10px;    
+    // height: 6px;
+}
+::-webkit-scrollbar-thumb{
+    background-color:@gray-light-1;
+    border-radius: 99px;
+    &:hover{
+        background-color:lighten(@gray-light-1, 10%);
+    }
+}
+::-webkit-scrollbar-track{
+    background-color:@gray-light;
+    // border: 0;
+}

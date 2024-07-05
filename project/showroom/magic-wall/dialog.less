@@ -1,0 +1,63 @@
+
+
+// 大屏兼容
+@media (min-width: 3000px) {
+    .vg-dialog{
+        min-width: 420px;
+        width: calc(1 / 96 * 1400vw);
+        padding: calc(1 / 96 * 70vw);
+        border-radius: calc(1 / 96 * 70vw);
+        .vg-dialog-header{
+            margin-bottom: calc(1 / 96 * 65vw);
+            font-size: clamp(12px, 1 / 96 * 60vw, 10rem);
+        }
+    
+        .font-size-14{
+            font-size: clamp(12px, 1 / 96 * 52vw, 10rem);
+        }
+
+        .vg-progress{
+            height: calc(1 / 96 * 20vw);
+        }
+        .mt-18{
+            padding-left: calc(1 / 96 * 32vw);
+        }
+        .pl-12 {
+            padding-left: calc(1 / 96 * 28vw);
+        }
+        .font-size-12 {
+            font-size: clamp(12px, 1 / 96 * 34vw, 10rem);
+        }
+        
+        .mt-4 {
+            margin-top: calc(1 / 96 * 28vw);
+        }
+
+        .vg-dialog-footer{
+            column-gap: calc(1 / 96 * 50vw);
+            margin-top: calc(1 / 96 * 40vw);
+            .btn-type-brand:not(.border){
+                box-shadow: 0 calc(1 / 96 * 8vw) 0 rgba(0,209,132,0.1);
+    
+            }
+            button {
+                width: calc(1 / 96 * 280vw);
+            }
+            
+            .vg-btn{
+                height: calc(1 / 96 * 112vw);
+                font-size: clamp(12px, 1 / 96 * 45vw, 10rem);
+                border-radius:calc(1 / 96 * 18vw);
+                
+            }
+        }
+    }   
+
+}
+
+
+// 适配色彩
+// .btn-type-brand{
+//     background-color: var(--flowing-color-0962FB);
+//     border-color: var(--flowing-color-0962FB);
+// }

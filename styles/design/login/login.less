@@ -1,0 +1,210 @@
+/*
+ * Name:            login
+ *
+ * Description:    登录页面
+ *   
+ */
+
+/********** 新增样式 **********/  
+.page-login{
+    --page-login-border-size:1px;
+    --page-login-width-inherit:100%;
+    --page-login-size-360:310px;
+    --page-login-size-40:2.5rem;
+    --page-login-size-font-1:22.5rem;
+    overflow:hidden;
+    position: fixed;
+    width: var(--page-login-width-inherit);
+    height: var(--page-login-width-inherit);
+
+    .page-img{
+        overflow:hidden;
+        #flex.row();
+        width: var(--page-login-width-inherit);
+        height: var(--page-login-width-inherit);
+        background-color: #dcfff5;
+        img{height: auto;}
+    }
+    .page-logo{
+        display: none;
+        width: 7.5rem;
+        margin: 0 auto 4.375rem;
+        transform: translateX(-6px);
+    }
+    //账户登录
+    .page-mian{
+        position: relative;
+        width: var(--page-login-size-360);
+        top: 50%;
+        transform: translateY(-50%);
+        margin: auto;
+        
+        .page-header{
+            text-align: center;
+            color: var(--page-login-size-font-1);
+            margin-bottom:#space[exlarge];
+            .explain{
+                margin-top:#space[base];
+                #font.font16();
+                color: @color-font-3;
+            }
+        }
+        .page-body{
+            //用户头像
+            .page-form-head{
+                position: relative;
+                width: 74px;
+                height: 74px;
+                margin: auto;
+                border-radius: 999px;
+                >img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 999px;
+                }
+                .himgedit{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 1.625rem;
+                    height: 1.625rem;
+                    background-color: @color-bg-1;
+                    color: @color-font-3;
+                    font-size: 1rem;
+                    border: 2px solid @color-font-white;
+                    border-radius: 999px;
+                    cursor: pointer;
+                    z-index: 1;
+                    transition: color .15s, background-color .15s;
+                    &:hover{
+                        color: @color-brand-1;
+                    }
+                }
+            }
+            .page-form-date{
+                margin-bottom:var(--page-login-size-40);
+                .right{
+                    position: absolute;
+                    right: 0;
+                    color: @color-brand-1;
+                    button{
+                        width: 5.625rem;
+                        // &.graybtn{
+                        //     background-color: @color-bg-1;
+                        //     color: @color-font-4;
+                        // }
+                    }
+                    
+                }
+            }
+            .page-other{
+                margin-top: #space[exsmall];
+                .page-txt{
+                    position: relative;
+                    margin:calc(#space[exlarge];) 0 #space[default];
+                    text-align: center;
+                    #font.font12();
+                    color:@color-font-4;
+                    #line.col(var(--page-login-border-size),@color-border-2);
+                }
+                //其他登录方式
+                .other-wechat{
+                    #flex.col();
+                    border: 1px solid @color-border-2;
+                    padding:calc(#space[small];) 0;
+                    #font.font20();
+                    color:@color-font-4;
+                    border-radius:@border-radius-default;
+                    &::after{
+                        content: attr(date);
+                        display: inline-block;
+                        #font.font14();
+                        margin-left: #space[small];
+                        vertical-align: middle;
+                    }
+                }
+            }
+            
+        }
+        .page-footer{
+            margin-top: #space[exlarge];
+            color: @color-font-4;
+        }
+    }
+    //微信登录
+    .wechat-revise{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // overflow: hidden;
+        margin-bottom: 1rem;
+        & ~ .page-other .page-txt{
+            display: none !important;
+        }
+    }
+    .template-img{
+        position: relative;
+        #flex.col();
+        // width: 310px;
+        // height: 310px;
+        width: 100%;
+        padding-bottom: 100%;
+        // padding: 8px;
+        border-radius: 8px;
+        // box-shadow: @box-shadow;
+        overflow: hidden;
+        // border: 1px dashed fadeout(@color-bg-black, 83%);
+         iframe{
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+}
+
+/* 文档宽度小于 480px 应用的样式 */
+@media screen and(max-width: 480px){
+    .page-login .page-mian{
+        padding: 0 32px;
+    }
+
+}
+
+/* 文档宽度小于 992px 应用的样式 */
+@media screen and(max-width: 992px){
+    .vg-container{
+        min-height: initial;
+    }
+    .page-login .vg-row >.vg-col.col-4{
+        display: none;
+    }
+    .page-login .vg-row >.vg-col.col-8{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 100%;
+        .page-logo{
+            display: block;
+        }
+        .page-mian{
+            width: 100%;
+            max-width: 400px;
+            min-width: 300px;
+            margin: 0 40px;
+            top: initial;
+            transform: initial;
+            .page-body{
+                min-height: initial;
+            }
+        }
+    }
+}
+
+
+
+
+

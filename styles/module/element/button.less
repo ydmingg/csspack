@@ -1,0 +1,158 @@
+/* 
+ *  Name:   vg-btn
+ *
+ * Descript:     按钮设置
+ *
+ * Component:   `btn-{type}`,`btn-{size}`,
+ *
+ * States:      `btn-`,
+ * 
+*/
+
+//标准化自定义button组件样式
+#buttonText(@background;@padding;@borderRadius;@funFont;@boxshadow:none;){
+  background:@background;
+  padding:@padding;
+  border-radius:@borderRadius;
+  @funFont();
+  box-shadow: @boxshadow;
+}
+
+//button内部公用样式
+#btn_type(@background;@color;@backagroundHover;){
+  background:@background;
+  color: @color;
+  &:hover{background-color:@backagroundHover;}
+}
+
+//buttonSzie公用样式
+#btn_Size(@padding;@fontSize;@gap:#space[small];){
+  padding:@padding; 
+  @fontSize();
+  gap:@gap;
+}
+
+
+/********** Button默认 **********/
+.btn{
+  #btn_type(transparent;inherit;@color-info-3;);
+  #flex.inlineflex();
+  #font.font13();
+  gap: #space[small];
+  padding:5px 12px; 
+  border-radius: @border-radius-default;
+  max-width: 100%;
+  background-color: @color-bg-1;
+  white-space: normal;
+  text-align: justify;
+  cursor: pointer;
+  transition: .3s;
+}
+
+//弱化按钮
+.btn-weaken{color: @color-font-3}
+
+/********** Type(primary/success/info/warn/error) **********/
+// 主要按钮
+.btn-primary{#btn_type(@color-brand-1;@color-font-white;darken(@color-brand-1, 3%););}
+.btn-primary-1{#btn_type(@color-brand-0;@color-brand-1;darken(@color-brand-0, 3%););}
+
+// 成功按钮
+.btn-success{#btn_type(@color-success-1;@color-font-white;darken(@color-success-1, 3%););}
+.btn-success-1{#btn_type(@color-success-3;@color-success-1;darken(@color-success-3, 3%););}
+
+// 信息按钮
+.btn-info{#btn_type(@color-info-1;@color-font-2;darken(@color-info-1, 3%););}
+.btn-info-1{#btn_type(@color-info-3;@color-font-2;darken(@color-info-3, 3%););}
+
+// 警告按钮
+.btn-warn{#btn_type(@color-warn-1;@color-font-white;darken(@color-warn-1, 3%););}
+.btn-warn-1{#btn_type(@color-warn-3;@color-warn-1;darken(@color-warn-3, 3%););}
+
+// 错误按钮
+.btn-error{#btn_type(@color-error-1;@color-font-white;darken(@color-error-1, 6%););}
+.btn-error-1{#btn_type(@color-error-3;@color-error-1;darken(@color-error-3, 6%););}
+
+
+
+/********** Size(small/default/large/w100%) **********/
+//大按钮 (40px)
+.btn-size-exlarge{#btn_Size(calc(#space[small];) #space[large];#font.font16(););}
+
+//中等按钮 (36px)
+.btn-size-large{#btn_Size(0.4375rem #space[large];#font.font14(););}
+
+//默认按钮 (32px)
+.btn-size-default{#btn_Size(0.3125rem 1rem;#font.font13(););}
+
+//小按钮 (28px)
+.btn-size-base{#btn_Size(0.25rem 0.625rem;#font.font12(););}
+
+//超小按钮（24px）
+.btn-size-small{#btn_Size(calc(0.5 * #space[exsmall];) #space[small];#font.font12();#space[small];)}
+
+// w100%
+.btn-w100{width:100%}
+
+
+/********** Border-button **********/
+.btn-border{outline:1px solid @color-border-2;}
+
+
+/********** Icon-button **********/
+.btn-icon{
+  font-size: inherit;
+  padding:#space[exsmall];
+  // box-shadow:@border-shadow-mini;
+  background-color: transparent;
+}
+
+.btn-extinguish{
+  color: @color-font-3;
+  background: @color-info-3;
+}
+
+//标签类按钮
+.btn-tag{
+  background: @color-bg-1;
+  border:1px solid @color-border-2;
+  border-radius: @border-radius-default;
+  color: @color-font-3;
+  &:hover{
+    background: @color-info-2;
+  }
+}
+
+/********** Active选中 **********/
+.btn-active{
+  #initialHover(@color-brand-1;@color-font-white;darken(@color-brand-1, 3%);@color-font-white;);
+  box-shadow: @border-shadow-base;
+  border-color: transparent;
+}
+.btn-borderactive{
+  #initialHover(@color-font-white;@color-brand-1;@color-font-white;@color-brand-1;);
+  outline: 1px solid @color-brand-1;
+}
+
+
+//extensions 插件按钮样式
+.btn-extensions{
+  #funFont(#font.auto(11px);@color-font-3;normal;);
+    height: 26px;
+    padding: 0 10px;
+    outline: 1px solid @color-border-2;
+    border-radius: 2px;  
+    transition: .2s;
+    &:hover{
+      outline-color:@color-border-1;
+    }
+  &.btn-active{
+    background-color: @color-bg-5;
+    color: @color-font-white;
+  }
+}
+
+// 禁用
+.btn-disabled{
+  color: @color-font-4 !important;
+}

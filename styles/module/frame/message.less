@@ -1,0 +1,32 @@
+/*
+ * Name:            消息提示
+ * 
+ * Description:     消息提示区内容
+ * 
+ * Component:   `vg-message`
+ * 
+ * Satus:        
+ */
+
+ /********** 默认结构样式 **********/
+.vg-message{
+  #funFont(#font.font14();@color-warn-1;normal);
+  #border_radius(auto;auto;@color-font-white;@border-radius-default;);
+  #position(fixed;15vh;0;auto;0;max-content;auto;);
+  padding: 8px 1rem;
+  margin: 0 auto;
+  z-index:11;
+  #animation.anima(bottonTopAnima;1s ease;);
+}
+
+//颜色类型
+.vg-message.message-success{color:@color-success-1;}
+.vg-message.message-error{color:@color-error-1;}
+.vg-message.message-info{color:@color-info-1;}
+
+@media (min-width:768px){
+  .vg-message{
+    top:10vh;
+    box-shadow:@border-shadow-default;
+  }
+}

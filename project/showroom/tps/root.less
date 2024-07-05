@@ -1,0 +1,238 @@
+:root{
+    // 色彩
+    --tps-color-3E8DD8: #3E8DD8;
+    --tps-color-D83E3E: #d83e3e;
+    --tps-color-08120F: #08120F;
+    --tps-color-d2d2d2: #d2d2d2;
+    
+
+    // 字体
+    --tps-font-12: calc(1/19.2 * 12vw);
+    --tps-font-14: calc(1/19.2 * 14vw);
+    --tps-font-16: calc(1/19.2 * 16vw);
+    --tps-font-18: calc(1/19.2 * 18vw);
+    --tps-font-20: calc(1/19.2 * 20vw);
+    --tps-font-28: calc(1/19.2 * 28vw);
+    --tps-font-52: calc(1/19.2 * 52vw);
+
+    // 尺寸
+    --window-w: 100vw;
+    --window-h: 100vh;
+    --tps-window-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.20) 0%, rgba(100, 103, 105, 0.20) 100%);
+    --tps-window-size-4: calc(1/19.2 * 4vw);
+    --tps-window-size-8: calc(1/19.2 * 8vw);
+    --tps-window-size-16: calc(1/19.2 * 16vw);
+    --tps-window-size-32: calc(1/19.2 * 32vw);
+    --tps-window-size-48: calc(1/19.2 * 48vw);
+    --tps-window-title-line-height: calc(1/19.2 * 2vw);
+    --tps-window-title-line-bg: linear-gradient(90deg, #3E8ED8 5.79%, rgba(255, 255, 255, 0.00) 95.52%);
+    --tps-window-title-line-before-size: calc(1/19.2 * 8vw);
+    --tps-window-title-text-height: calc(1/19.2 * 200vw);
+    --tps-window-title-tab-bg: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 5.79%, rgba(63, 143, 216, 0.99) 50.19%, rgba(255, 255, 255, 0.00) 95.52%);
+    --tps-window-title-tab-list-width: calc(1/19.2 * 76vw);
+    --tps-window-title-tab-list-height: calc(1/19.2 * 38vw);
+    --tps-window-view-swiper-size: calc(1/19.2 * 760vw);
+    --tps-window-view-swiper-buttonlr-width: calc(1/19.2 * 54vw);
+    --tps-window-view-swiper-buttonlr-height: calc(1/19.2 * 81vw);
+    --tps-window-view-swiper-buttonlr-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.00) 88.33%);
+    --tps-window-view-swiper-pagination-width: calc(1/19.2 * 48vw);
+    --tps-window-view-swiper-pagination-height: calc(1/19.2 * 5vw);
+    --tps-window-view-video-title-bg: linear-gradient(180deg, #000 -80.47%, rgba(0, 0, 0, 0.00) 100%);
+    --tps-window-nav-list-img-width: calc(1/19.2 * 48vw);
+    --tps-window-nav-list-img-height: calc(1/19.2 * 48vw);
+    --tps-window-nav-list-bg:linear-gradient(90deg, #3E8ED8 23.61%, rgba(255, 255, 255, 0.00) 88.33%);
+
+    
+
+
+}
+
+
+
+////////////////////////// 适配
+// 兼容大屏
+.media-tv({
+    .btn-size-xs{.btn-size((24 * 1 / 19.2vw);(2 * 1 / 19.2vw);(8 * 1 / 19.2vw);(12 * 1 / 19.2vw);(4 * 1 / 19.2vw);initial;(4 * 1 / 19.2vw););}
+    .btn-size-sm{.btn-size((28 * 1 / 19.2vw);(4 * 1 / 19.2vw);(10 * 1 / 19.2vw);(12 * 1 / 19.2vw);(6 * 1 / 19.2vw);initial;(4 * 1 / 19.2vw););}
+    .btn-size-md{.btn-size((32 * 1 / 19.2vw);(4 * 1 / 19.2vw);(12 * 1 / 19.2vw);(13 * 1 / 19.2vw);(6 * 1 / 19.2vw);initial;(4 * 1 / 19.2vw););}
+    .btn-size-lg{.btn-size((36 * 1 / 19.2vw);(6 * 1 / 19.2vw);(16 * 1 / 19.2vw);(14 * 1 / 19.2vw);(8 * 1 / 19.2vw);initial;(4 * 1 / 19.2vw););}
+    .btn-size-xl{.btn-size((40 * 1 / 19.2vw);(8 * 1 / 19.2vw);(20 * 1 / 19.2vw);(16 * 1 / 19.2vw);(12 * 1 / 19.2vw);initial;(6 * 1 / 19.2vw););}
+    .btn-size-xxl{.btn-size((48 * 1 / 19.2vw);(12 * 1 / 19.2vw);(24 * 1 / 19.2vw);(18 * 1 / 19.2vw);(12 * 1 / 19.2vw);initial;(8 * 1 / 19.2vw););}
+});
+.btn-icons{
+    &.btn-size-xs{
+        .media-tv({
+            width: (24 * 1 / 19.2vw);
+            padding: (8 * 1 / 19.2vw);
+        });
+    }
+    &.btn-size-sm{
+        .media-tv({
+            width: (28 * 1 / 19.2vw);
+            padding: (10 * 1 / 19.2vw);
+        });
+    }
+    &,&.btn-size-md{
+        .media-tv({
+            width: (32 * 1 / 19.2vw);
+            padding: (12 * 1 / 19.2vw);
+        });
+    }
+    &.btn-size-lg{
+        .media-tv({
+            width: (36 * 1 / 19.2vw);
+            padding: (16 * 1 / 19.2vw);
+        });
+    }
+    &.btn-size-xl{
+        .media-tv({
+            width: (40 * 1 / 19.2vw);
+            padding: (20 * 1 / 19.2vw);
+        });
+    }
+
+}
+
+.h0 { 
+    .media-tv({
+        font-size: (48 * 1 / 19.2vw)
+    });
+}
+.h1 { 
+    .media-tv({
+        font-size: (40 * 1 / 19.2vw)
+    });
+}
+.h2 {
+    .media-tv({
+        font-size: (32 * 1 / 19.2vw)
+    });
+ }
+.h3 { 
+    .media-tv({
+        font-size: (28 * 1 / 19.2vw)
+    });
+}
+.h4 { 
+    .media-tv({
+        font-size: (24 * 1 / 19.2vw)
+    });
+}
+.h5 { 
+    .media-tv({
+        font-size: (20 * 1 / 19.2vw)
+    });
+}
+.h6 { 
+    .media-tv({
+        font-size: (18 * 1 / 19.2vw)
+    });
+}
+
+.font-size-10{
+    .media-tv({
+        font-size: (10 * 1 / 19.2vw);
+    });
+}
+.font-size-11{
+    .media-tv({
+        font-size: (11 * 1 / 19.2vw);
+    });
+}
+.font-size-12{
+    .media-tv({
+        font-size: (12 * 1 / 19.2vw);
+    });
+}
+.font-size-13{
+    .media-tv({
+        font-size: (13 * 1 / 19.2vw);
+    });
+}
+.font-size,
+.font-size-14{
+    .media-tv({
+        font-size: (14 * 1 / 19.2vw);
+    });
+}
+.font-size-16{
+    .media-tv({
+        font-size: (16 * 1 / 19.2vw);
+    });
+}
+.font-size-18{
+    .media-tv({
+        font-size: (18 * 1 / 19.2vw);
+    });
+}
+.font-size-20{
+    .media-tv({
+        font-size: (20 * 1 / 19.2vw);
+    });
+}
+.font-size-24{
+    .media-tv({
+        font-size: (24 * 1 / 19.2vw);
+    });
+}
+.font-size-28{
+    .media-tv({
+        font-size: (28 * 1 / 19.2vw);
+    });
+}
+.font-size-32{
+    .media-tv({
+        font-size: (32 * 1 / 19.2vw);
+    });
+}
+.font-size-40{
+    .media-tv({
+        font-size: (40 * 1 / 19.2vw);
+    });
+}
+.font-size-48{
+    .media-tv({
+        font-size: (48 * 1 / 19.2vw);
+    });
+}
+
+// border-radius
+.border-radius-sm{
+    .media-tv({
+        border-radius: (4 * 1 / 19.2vw);
+    });
+}
+.border-radius,
+.border-radius-md{
+    .media-tv({
+        border-radius: (6 * 1 / 19.2vw);
+    });
+}
+.border-radius-lg{
+    .media-tv({
+        border-radius: (8 * 1 / 19.2vw);
+    });
+}
+.border-radius-xl{
+    .media-tv({
+        border-radius: (12 * 1 / 19.2vw);
+    });
+}
+.border-radius-xxl{
+    .media-tv({
+        border-radius: (16 * 1 / 19.2vw);
+    });
+}
+.border-radius-max{
+    .media-tv({
+        border-radius: (999 * 1 / 19.2vw);
+    });
+}
+
+/** 生成space间隔类名 **/
+each(@space,{
+    // 1920向上兼容
+    .media-tv({
+        .gap_value(@key;( @value * 1 / 19.2vw );)
+    });
+});

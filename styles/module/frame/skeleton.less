@@ -1,0 +1,31 @@
+/*
+ * Name:            skeleton
+ * 
+ * Description:    骨架屏
+ * 
+ * Component:   `vg-skeleton`
+ * 
+ * Satus:        
+*/
+
+.vg-skeleton{
+    width: 100%;
+    //块结构
+    &-item{
+        display: inline-block;
+        #border_radius(100%;1rem;@color-border-3;@border-radius-default);
+    }
+    //限制宽度
+    .is-first{width: 33%}
+    //圆结构
+    &-circle{
+        #border_radius(var(--vg-skeleton-circle-width);var(--vg-skeleton-circle-width);@color-border-3;50%);
+        line-height: var(--vg-skeleton-circle-width);
+    }
+}
+
+//启动加载动画
+.vg-skeleton.is-animated > .vg-skeleton-item {
+    #animation.anima(vg-skeleton-loading;1.4s ease;infinite);
+    background: linear-gradient(90deg,@color-border-3 25%,@color-bg-2 40%,@color-border-3 63%) 0 0/400% 100%;
+}

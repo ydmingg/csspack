@@ -1,0 +1,84 @@
+/*
+ * Name:           steps
+ * 
+ * Description:    步骤条/动态
+ * 
+ * Satus:        
+*/
+
+//设置步骤条外边距/margin-block-end/color/fontSize
+#vg_Steps_Styles(@margin;@color;@font){
+    margin-block-end:@margin;
+    color: @color;
+    @font();
+};
+
+.vg-steps{
+    --vg-steps-head-size:2.75rem;
+
+    &-item{
+        display: flex;
+        &:last-child .vg-steps-line{display:none;}
+    }
+    &-header{
+        //position/top/right/bottom/left/width/height
+        #position(relative;auto;auto;auto;auto;var(--vg-steps-head-size);auto);
+        margin-inline-end: #space[base];
+    }
+    &-line{
+        //position/top/right/bottom/left/width/height
+        #position(absolute;0;auto;auto;50%;1px;100%);
+        padding: calc(var(--vg-steps-head-size) + #space[small];) 0 #space[small];
+        &::after{
+            //width/height/background/borderRadius
+            #border_radius(1px;100%;@color-brand-1;1px);
+            content: "";
+            display: inline-block;
+            transition: background .3s;
+        }
+    }
+    &-head{
+        #flex.middle();
+        padding:#space[exsmall];
+        border: 1px solid @color-brand-1;
+
+        //width/height/background/borderRadius
+        #border_radius(var(--vg-steps-head-size);var(--vg-steps-head-size);@color-font-white;999px;);
+
+        img{
+            //width/height/object
+            #imageRepeat(100%;100%;cover);
+
+            box-shadow: @border-shadow-base;
+            border-radius: 50%;
+        }
+    }
+    &-body{
+        max-width: 80%;
+        flex-grow: 1;
+    }
+    &-title{
+        //margin-block-end/color/fontSize
+        #vg_Steps_Styles(#space[base];@color-font-1;#font.font16(););
+
+        margin-block-start: 0.625rem;
+        font-weight: @font-blod-large;
+    }
+    &-name{
+        //margin-block-end/color/fontSize
+        #vg_Steps_Styles(#space[exsmall];@color-font-2;#font.font14(););
+    }
+    &-time{
+        //margin-block-end/color/fontSize
+        #vg_Steps_Styles(#space[large];@color-brand-1;#font.font12(););
+    }
+    &-explain{
+        //width/height/background/borderRadius
+        #border_radius(auto;auto;@color-bg-1;@border-radius-large);
+
+        //margin-block-end/color/fontSize
+        #vg_Steps_Styles(#space[exlarge];@color-font-2;#font.font14(););
+        padding: #space[large];
+        border: 1px solid @color-border-2;
+    }
+}

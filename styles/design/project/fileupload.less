@@ -1,0 +1,48 @@
+
+//上传项目文件
+.vg-product-fileupload{
+    .vg-pfileupload-file{
+        #funFont(#font.font14();@color-font-2;normal;);
+        margin-block-end: 14px;
+
+    }
+    .vg-pfileupload-select{
+        #flex.col();
+        flex-direction: column;
+        background: @color-bg-1;
+        height: 40px;
+        margin-block-start: 8px;
+        border-radius: @border-radius-large;
+        select{
+            #funFont(#font.font14();@color-font-1;normal;);
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            display: block;
+            height: 100%;
+            border: 0;
+            padding: 0 20px 0 12px;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+            print-color-adjust: exact;
+            &:focus{
+                outline:2px solid @color-brand-2;
+                border-radius: @border-radius-large;
+            }
+            option{
+                font-weight: normal;
+                display: block;
+                white-space: nowrap;
+                min-height: 1.2em;
+                padding: 0px 2px 1px;
+            }
+        }
+    }
+}
+
+

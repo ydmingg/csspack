@@ -1,0 +1,73 @@
+ //
+ //工具面板
+ //
+ .toolbar-panel{
+    #flex.between();
+    position: relative;
+    user-select: none;
+    grid-area: toolbar-panel;
+    height:2.5rem;
+    padding:0 #space[base];
+    border-bottom:1px solid @color-border-2;
+    z-index: 2;
+    background: @color-font-white;
+    .item{
+        #flex.row();
+        #funFont(#font.font14();@color-font-2;inherit;);
+        gap: #space[base];
+
+        >button{
+            position: relative;
+            #font.font16();
+        }
+        button:nth-of-type(3){
+            #font.font18();
+        }
+        .resize{
+            #flex.row();
+            justify-content: center;
+            gap: #space[small];
+            button{
+                background-color: @color-bg-1;
+                &:hover{
+                    color: @color-font-1;
+                }
+            }
+            &-number{
+                #flex.row();
+                #font.font14();
+                justify-content: center;
+                width: 48px;
+                padding: 2px 4px;
+                transition: box-shadow .25s;
+                border-radius: 0.25rem;
+                &:focus-within{
+                    box-shadow:inset 0 0 0 1px @color-border-2;
+                    background-color: @color-bg-1;
+                }
+                >span{
+                    cursor: text;
+                }
+                input{
+                    display: inline-block;
+                    // width: 0;
+                    width: 100%;
+                    min-width: 0;
+                    text-align: center;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}

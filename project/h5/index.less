@@ -1,0 +1,49 @@
+// 滚动视差
+.perspective{
+    &-container{
+        perspective: 1px; 
+        -webkit-perspective: 1px;
+        height: 100vh;
+        // background: #d7e041;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 0;
+        overflow: hidden scroll;
+    }
+    &-3d{
+        position: relative;
+        width: 100%;
+        height: 171vh;
+        transform-style: preserve-3d; 
+        perspective-origin: 100% 50%;
+    }
+    &-content{
+        // position: absolute;
+        // left: 50%;
+        // top: 0;
+        // transform: translate(-50%, 0);
+        
+    }
+}
+
+
+
+
+// typical h5
+.h5-typical{
+    &-bg{
+        position: absolute;
+        left:0;
+        top: 21%;
+        height: 100%;
+        width: 100%;
+        transform: translateZ(-1px) scale(2);
+        -webkit-transform: translateZ(-1px) scale(2);
+        // backdrop-filter: blur(10px);
+        img{
+            width: 100%;
+            object-fit: cover;
+            object-position: 0 0;
+        }
+    }
+}

@@ -1,0 +1,94 @@
+// 显示区域
+.tps-container .window-view{
+    grid-row: 1/13;
+    grid-column: 5/11;
+    padding: 0 8%;
+    &-value{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .swiper,
+        .tiny-player,
+        .model3d{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+        .swiper{
+            width: var(--tps-window-view-swiper-size);
+            aspect-ratio: 4/3;
+            border-radius: var(--tps-window-size-48);
+            &-container{
+                width: 100%;
+                height: 100%;
+            }
+            &-wrapper{
+                width: 100%;
+                height:100%;
+            }
+            &-slide img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            &-button{
+                &-prev,&-next{
+                    width: var(--tps-window-view-swiper-buttonlr-width);
+                    height: var(--tps-window-view-swiper-buttonlr-height);
+                    background: var(--tps-window-view-swiper-buttonlr-bg);
+                    border-radius: @border-radius-max;
+                    backdrop-filter: blur(17.5px);
+                }
+                &-prev::after,&-next::after{
+                    font-size: var(--tps-font-28);
+                    color: var(--tps-color-d2d2d2);
+                }
+            }
+            &-pagination{
+                span{
+                    width: var(--tps-window-view-swiper-pagination-width);
+                    height: var(--tps-window-view-swiper-pagination-height);                    
+                    border-radius: var(--tps-window-view-swiper-pagination-width);
+                    
+                }
+                &-bullet-active{
+                    background: var(--color-white);
+                }
+            } 
+            
+        }
+        .tiny-player{
+            width: var(--tps-window-view-swiper-size);
+            aspect-ratio: 4/3;
+            &-content{
+                width: 100%;
+                height: 100%;
+                // box-shadow: @box-shadow-sm;
+            }
+            // &-title{
+            //     display: none;
+            //     background: var(--tps-window-view-video-title-bg);
+            //     font-size: var(--tps-font-34);
+            //     color: var(--color-whtie);
+            //     font-weight: @font-weight-lg;
+            //     line-height: 1;
+            // }
+            // &.fullscreen .tiny-player-title{
+            //     display: flex !important;
+            // }
+        }
+        .model3d{
+            // width: var(--tps-window-view-swiper-size);
+            // aspect-ratio: 4/3;
+            width: calc(100vw - 50%);
+            height: 100%;
+            left: -39%;
+        }
+        
+
+
+    }
+}

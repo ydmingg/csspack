@@ -1,0 +1,92 @@
+/*
+ * Name:            menu
+ * 
+ * Description:     侧边栏导航
+ * 
+ * Component:   `vg-menu`
+ * 
+ * Satus:        
+*/
+
+//项目文档-menu
+.vg-menu-doc{
+    
+}
+
+
+//后台管理-menu
+.aside-group{
+    .item-list{
+        position: relative;
+        padding: calc(#space[base];) 0 #space[large];
+        > li{
+            #flex.row();
+            position: relative;
+            > a{
+                #flex.autoFlex(flex;center;left;);
+                #border_radius(100%;2.625rem;transparent;@border-radius-large;);
+                #funFont(#font.font20();@color-info-1;@font-blod-base;);
+                display: grid;
+                grid-template-columns: 1.25rem 1fr;
+                flex: 1;
+                padding: 0 #space[base];
+                letter-spacing: 1px;
+                transition: .2s;
+                &:not(.router-link-active):hover{background: @color-border-3;}
+                > span{
+                    #font.font14();
+                    #textEllipsis();
+                    #anim-mover();
+                    margin-inline-start: #space[small];
+                }
+                >input{
+                    #inputText(#inputPlaceholder(
+                        #funFont(#font.font14();@color-font-1;@font-blod-large;);
+                        #border_radius(96%;auto;transparent;@border-radius-default;);
+                        0 #space[small];
+                        1px solid @color-border-1;
+                        @color-font-4;
+                    );@color-border-1;);
+                }
+            }
+            .router-link-active{
+                background: @color-brand-2;
+                color:@color-font-white;
+                box-shadow: @border-shadow-default;
+                &::before{
+                    display: block;
+                    background: @color-font-white !important;
+                }
+                &:hover .editbtn{background:@color-font-white;}
+            }
+        }
+        &:nth-child(1){
+            margin-block-end: #space[large];
+            padding:0 0 #space[base];
+            &::after{
+                #position(absolute;auto;auto;0;0;100%;1px;);
+                content: '';
+                background:var(--vg-aside-border-color);
+            }
+        }
+    }
+
+    //创建项目
+    .newproduct{
+        #flex.row();
+        padding: calc(#space[exsmall];) #space[base];
+        i{#funFont(#font.font20();@color-font-3;normal;);}
+        .span{
+            #flex.row();
+            #funFont(#font.font14();@color-info-1;@font-blod-medium;);
+            flex: 1;
+            column-gap:#space[small];
+            i{color:@color-info-1;}
+        }
+        > i{
+            #flex.middle();
+            cursor: pointer;
+            &:hover{color:@color-font-1;}
+        }
+    }
+}

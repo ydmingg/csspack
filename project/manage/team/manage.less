@@ -1,0 +1,51 @@
+// 成员-职位管理
+.pages-team-manage{
+    margin-bottom: 2rem;
+    .tables-set{
+        min-height: 3rem;
+        align-items: center;
+    }
+    // &-row:hover &-col .team-manage-namestext{}
+    &-col{
+        cursor: pointer;
+        &:hover{
+            .team-manage-namestext{
+                i{
+                    visibility: visible;
+                    opacity: 1;
+                }
+                span ~ button{
+                    display: inline-flex;
+                }
+            }
+        }
+    }
+    
+}
+
+
+// 成员-职位管理-修改权限
+.team-manage-namestext{
+    // user-select: none;
+    input:not(.hide) ~ i{
+        display: none;       
+    }
+    span ~ button{
+        .btn-size-xs();
+        display: none;
+        margin-inline-start: 0.625rem;
+        color: var(--color-gray-700);
+    }
+}
+
+.team-manage-border{
+    user-select: none;
+    padding: 12px 1.25rem;
+    border: 1px dashed @border-color-200;
+    border-radius: @border-radius-lg;
+    .titles{
+        margin-bottom: 0.75rem;
+        padding-bottom: 8px;
+        border-bottom: 1px solid @border-color-100;
+    }
+}

@@ -1,0 +1,50 @@
+/*
+ * Name:            timepicker
+ * 
+ * Description:    timepicker 时间选则器
+ * 
+ * Component:   `vg-timepicker`
+ * 
+ * Satus:        
+ */
+
+/* 新增样式 */
+.vg-timepicker{
+    --vg-timepicker-height:12.5rem;
+    --vg-timepicker-width:1.25rem;
+    --vg-timepicker-color:@color-brand-1;
+
+    #position(absolute;50px;auto;auto;calc(0% - var(--vg-timepicker-width));15rem;auto;);
+    #border_radius(15rem;auto;@color-font-white;@border-radius-default;);
+    padding:var(--vg-timepicker-width)0 calc(var(--vg-timepicker-width) - .375rem);
+    box-shadow: @border-shadow-base;
+    z-index: 1;
+    transition: display .3s ease;
+    .timepicker-content{
+        display: grid;
+        width: 100%;
+        height: var(--vg-timepicker-height);
+        grid-template-columns: repeat(3,1fr);
+        .timepicker-wrapper{
+            position: relative;
+            height: 100%;
+            width: 100%;
+            text-align:center;
+            .timepicker-item{    
+                width: 100%;
+                color: @color-font-2;
+            }
+            .timepicker-item:hover{
+                background: @color-brand-0;
+                cursor: pointer;
+            }
+        }
+        .timepicker-wrapper:hover{overflow-y:overlay;}
+    }
+    .timepicker-footer{
+        #flex.between();
+        padding:0 var(--vg-timepicker-width) ;
+        padding-top:.75rem;
+        .btn-text{color: var(--vg-timepicker-color);}
+    }
+}

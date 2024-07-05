@@ -1,0 +1,12 @@
+
+//标准化设置元素层级（z-index）
+#funZindex(){
+    //自定义层级 //z-index(@min;@number;@max)；
+    .forEachGap(@length;@i:1;@min:-1;@max:99) when(@i < @length){
+        .zindex-min{z-index: @min;}
+        .zindex-@{i}{z-index: @i;}
+        .zindex-max{z-index: @max;}
+        .forEachGap(@length;@i:@i + 1;)
+    }.forEachGap(10);
+}
+#funZindex();

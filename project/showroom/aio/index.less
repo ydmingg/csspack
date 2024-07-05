@@ -1,0 +1,68 @@
+// 一体机
+.aio-container-cover{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 var(--aio-window-card-rowspan);
+    width: 100%;
+    height: 100%;
+    
+    .swiper{
+        user-select: none;
+        position: relative;
+        width: var(--aio-window-card-width);
+        height:  100%;
+        // border-radius: var(--aio-window-size-48);
+        &-container{height: 100%;}
+        &-slide{
+            position: relative;
+            // overflow: hidden;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            width: 100%;
+            height: 100%;
+            // border-radius: var(--aio-window-card-border-radius);
+            box-shadow: var(--aio-window-card-box-shadow);
+            cursor: pointer;
+            &:nth-of-type(1){
+                // left: var(--aio-window-card-type1-left);
+                // width: var(--aio-window-card-type1-width);
+                // opacity: .4;
+            }
+            &:nth-of-type(2){
+                // top: var(--aio-window-card-type2-top);
+                // left: var(--aio-window-card-type2-left);
+                // width: var(--aio-window-card-type2-width);
+                // height: var(--aio-window-card-type2-height);
+                // opacity: .6;
+            }
+            &:nth-of-type(3){
+                // top: var(--aio-window-card-type3-top);
+                // height: var(--aio-window-card-type3-height);
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .rect{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: calc(100% / 3.6);
+                padding: 0 var(--aio-window-card-rect-padding);
+                background: var(--aio-window-card-bg);
+                backdrop-filter: var(--aio-window-card-backdrop-filter);
+                color: var(--aio-color-0B0B28);
+                font-size: var(--aio-font-28);
+                line-height: @line-height-xl;
+                word-wrap: break-word;
+                justify-content: center;
+            }
+        }
+    }
+    
+}

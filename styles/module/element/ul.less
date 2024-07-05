@@ -1,0 +1,31 @@
+/* 
+ *  Name:   vg-ul
+ *
+ * Descript:  代码块
+ *
+ * Component:   `ul`,
+ *
+ * States:      `ul-`
+ * 
+
+*/
+
+/********** ul默认结构样式 **********/
+.vg-ul{
+  
+}
+
+
+//列表结构
+.vg-ul.listborder{
+    .vg-ul-items{
+        #funFont(#font.font14();@color-font-1;normal;) !important;
+        padding: 0.625rem #space[base];
+        margin: 0 !important;
+        border-bottom: 1px solid @color-border-3;
+        cursor: pointer;
+        &:hover{
+            background: @color-bg-1;
+        }
+    }
+}

@@ -1,0 +1,259 @@
+/*
+ * Name:            templa
+ * 
+ * Description:    模板三
+ * 
+ * Satus:        
+*/
+
+.templa3-page {
+    user-select: none;
+    -webkit-user-select:auto;
+    -webkit-touch-callout:none; 
+    background: #F7F7F7;
+    color: #202020;
+}
+.templa3-header {
+    position: relative;
+    background: #7DAB2C;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);         
+    .title{
+        position: relative;
+        height: 5.375rem;
+        h1{
+            height: 100%;
+            img{
+                #imageRepeat(100%;100%;cover)
+            }
+        }
+        .btnMenu{
+            #flex.end();
+            height: 100%;
+            margin-inline-end: #space[default];
+            color: @color-font-white;
+           font-size: 28px;
+            button{
+                box-shadow: none;
+                background-color: transparent;
+            }
+        }
+        .btnMenu-list{
+            position: absolute;
+            top: 5.375rem;
+            left: -100%;
+            width: 200%;
+            background-color: @color-font-white;
+            box-shadow: rgba(0, 0, 0, 0.6) 0 100vh 0 calc(100vh);
+            border-top: 1px solid #e5e5e5;   
+            z-index:2;
+            .item{
+                #flex.row();
+                justify-content: space-between;
+                padding: 22px 16px;
+                #font.font16();
+                border-bottom: 1px solid #E5E5E5;
+                span{
+                    color: #CBCBCB;
+                    #font.font20();
+                }
+            }
+        }
+    }
+}
+.templa3-body{
+    padding: 1.375rem;
+    .itemPro-search{
+        position: relative;
+        margin-block-end: 1.125rem;
+        input{
+            display: block;
+            width: 100%;
+            height: 3.0625rem;
+            background-color: @color-font-white;
+            padding-inline-start: 0.875rem;
+            padding-inline-end: 3.0625rem;
+            border: 1px solid #AAAAAA;
+            border-radius: 0;
+            #font.font16();
+            font-weight: @font-blod-base;
+            &::placeholder{
+                color: #AAAAAA;
+            }
+        }
+        i{
+            #position(absolute;0;0;auto;auto;3.0625rem;3.0625rem);
+            #flex.middle();
+            font-size: 24px;
+            color: #AAAAAA;
+            border: 1px solid #AAAAAA;
+        }
+    }
+    .itemPro-list{
+        background-color: @color-font-white;
+        padding: calc(#space[exlarge];) calc(#space[small];) calc(#space[exlarge];) 0;
+        #font.font16();
+        color: #555555;
+        img{
+            margin-inline-end: 0.625rem;
+        }
+        .tit{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-block-end:14px;
+            white-space:nowrap;
+            color: #202020;
+        }
+        p{
+            margin-block-start: 0.5rem;
+            font-weight: @font-blod-small;
+        }
+        a{
+            margin-block-start: 1.125rem;
+            color: #2D9FBE;
+        }
+    }
+}
+.templa3-footer{
+    #flex.middle();
+    padding-block-end: 32px;
+    background-color: #F7F7F7;
+    span{
+        overflow: hidden;
+        #flex.middle();
+        display:inline-block;
+        color: #9c9c9c;
+        border: 1px solid #d9d9d9;
+        border-radius: 99px;
+    }
+    button{
+        #font.font14();
+        height: 2.75rem;
+        &:hover{
+            background-color: transparent;
+        }
+    }
+}
+
+//详情页
+.templa3Por-body{
+    padding: 0 1.375rem;
+    margin-block-end: 1.875rem;
+    background: #F7F7F7;
+    .itemPro-1{
+        background-color: @color-font-white;
+        .image{
+            padding: 48px 0;
+            img{
+                height: 9.75rem;
+            }
+        }
+        p{
+            height: 3.25rem;
+            background-color: #F0F0F0;
+            #font.font18();
+            font-weight: @font-blod-large;
+            color:  #7DAB2C;
+            text-align: center;
+            line-height: 3.25rem;
+            box-shadow: 0 6px 0 0 #7DAB2C;
+        }
+        
+    }
+    .itemPro-2{
+        margin-block-start: 6px;
+        background-color: @color-font-white;
+        .title{
+            #flex.between();
+            padding: 1rem 1.25rem;
+            color: #555555;
+            border-bottom: 1px solid #E2E2E2;
+            i{
+                font-size: 1.5rem;
+                color: #7DAB2C;
+            }
+        }
+        .content{
+            padding:1.5rem 1.125rem 0;
+            color: #787777;
+            #font.font14();
+            .m-16{
+                margin: 1rem 0;
+                color: #313131;
+            }
+            .m-6{
+                margin-block-end: 0.5rem;
+            }
+            .image{
+                margin-block-end: 1.25rem;
+            }
+            .txt{
+                margin: 0.5rem 0 1rem;
+            }
+            //参数
+            .parameter{
+                transform: translateX(-18px);
+                width: calc(100% + 36px);
+                #parameter_style();
+                .content{
+                    padding: 0;
+                }
+                .content > .item{
+                    padding: 0;
+                    padding-inline-start: 0.75rem;
+                    #font.font14();
+                    height: 28px;
+                }
+                .info .content > .item{
+                    padding: 0;
+                    padding-inline-start: 1.25rem;
+                    height: 28px;
+                }
+            }
+        }
+        //资料下载
+        .Profills{
+            padding: 0 1.125rem 2.5rem; 
+            .list{
+                #flex.row();
+                margin-block-start:1.75rem ;
+                img{
+                    width: 2.6875rem;
+                    height: 2.6875rem;
+                }
+                p{
+                    width: calc(100% - 2.6875rem - 2rem);
+                    white-space: nowrap;
+                    margin: 0 0.5rem;
+                    #font.font12();
+                    color: #787777;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                a{
+                    width: 2rem;
+                    color: #7DAB2C;
+                    #font.font14();
+                    font-weight: @font-blod-base;
+                    border-bottom: 2px solid #7DAB2C;
+                }
+            }
+            
+        }
+
+        .itemPro-Btn{
+            padding: 1rem 1.125rem 2.5rem;
+            button{
+                width: 100%;
+                margin-block-start: 1rem;
+                background-color: #7DAB2C;
+                color: @color-font-white;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}
+
+
+.templa3-page .templa3Por-body .itemPro-2 .content .parameter .title{
+    background: #616161;
+}

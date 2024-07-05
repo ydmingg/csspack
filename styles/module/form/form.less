@@ -1,0 +1,151 @@
+
+//form 表单
+.vg-form{
+  margin-bottom: 1.25rem;
+  border-radius: @border-radius-large;
+  &-header{
+    #flex.between();
+    padding:calc(#space[default];) 0;
+    color: @color-font-2;
+    .exit{
+      #flex.row();
+      #funFont(#font.font20();@color-font-4;normal;);
+      margin-inline-end: #space[exsmall];
+      cursor: pointer;
+    }
+    .close{
+      #funFont(#font.font20();@color-font-3;normal;);
+      cursor: pointer;
+    }
+  }
+  &-body{
+    display: flex;
+    flex-direction: column;
+    #font.font14();
+    .vg-input-label{
+      #funFont(#font.font12();@color-font-3;normal;);
+      min-width: 5rem;
+      margin-inline-end: #space[large];
+      margin-block-end: #space[small];
+      &:not(.is-no-asterisk)::after{
+        content: "*";
+        display: inline-block;
+        margin-inline-end: #space[exsmall];
+        color: @color-error-1;
+        line-height: 1;
+      }
+    }
+    .vg-input-label.colorFont2{
+      #font.font14();
+      span{
+        #funFont(#font.font14();@color-font-2;@font-blod-large;);
+        margin: 0 #space[exsmall];
+      }
+    }
+    .form-prime-item{
+      margin-block-end: #space[default];
+      input{
+        #border_radius(100%;2.25rem;transparent;@border-radius-default;);
+        flex: 1;
+        min-width: 130px;
+        padding:0 #space[base];
+        border: 1px solid @color-border-2;
+        line-height: 32px;
+        color: @color-font-1;
+        font-weight:@font-blod-large;
+        &::placeholder{
+          font-weight:normal;
+          color: @color-font-4;
+        }
+        &:focus{
+          border-color: @color-brand-1;
+          outline: 1px solid @color-brand-1;
+        }
+        &[type="date"]::-webkit-calendar-picker-indicator{color: #666}
+      }
+      .edit-mobile{
+        #flex.row();
+        column-gap: #space[base];
+      }
+      //上传文件
+      .upfill{
+        #flex.row();
+        #border_radius(100%;40px;transparent;@border-radius-default;);
+        padding:0 #space[base];
+        border: 1px solid @color-border-2;
+        .fill-text{
+          #flex.row();
+          #textEllipsis();
+          #funFont(#font.font14();@color-font-1;@font-blod-large;);
+          flex: 1;
+          column-gap: #space[exsmall];
+          >i{#funFont(#font.font20();@color-border-1;normal;);}
+          span{
+            #textEllipsis();
+            flex: 1;
+          }
+        }
+        >button{
+          background: @color-info-3;
+          color: @color-brand-1;
+        }
+      }
+      .flex-gapcol{
+        #flex.row();
+        column-gap: 12px;
+      }
+      //单行文本域
+      .vg-textarea.vg-textarea-input{
+        max-height: 66px;
+      }
+    }
+    .form-upload-box{
+      width: 100%;
+      height: 100%;
+      flex-wrap: wrap;
+      .label{
+        #flex.row();
+        #funFont(#font.font12();@color-font-4;normal;);
+        margin-block-end: #space[exsmall];
+        margin-inline-end: #space[large];
+      }
+      .image-cover{
+        #flex.middle();
+        #border_radius(100%;auto;@color-bg-1;@border-radius-large;);
+        padding: #space[large];
+        border: 1px solid @color-border-2;
+        >i{#funFont(#font.font32();@color-border-1;normal;);}
+        .image > div{border: 0 !important;}
+      }
+    }
+    //input组合 + 按钮 结构
+    .form-prime-btn{
+      #flex.row();
+      position: relative;
+      >input{padding-right: 72px;}
+      .foundbtn{
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        background:@color-brand-1 ;
+        color: @color-font-white;
+      }
+    }
+  }
+  &-footer{
+    padding:calc(#space[large];) 0 #space[default];
+    button{
+      &:first-child{
+        margin-inline-end: #space[large];
+        background-color: @color-info-3;
+        color: @color-font-3;
+      }
+      &:last-child{
+        background-color: @color-brand-1;
+        color: @color-font-white;
+        box-shadow: @border-shadow-base;
+      }
+    }
+  }
+}
+.vg-form-body.pi-width100 .form-prime-item{width: 100%;}

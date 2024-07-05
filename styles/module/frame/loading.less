@@ -1,0 +1,495 @@
+/*
+ * Name:            loading
+ * 
+ * Description:     加载...
+ * 
+ * Component:   `vg-loading`
+ * 
+ * Satus:        
+*/
+
+//loading 中svg样式集合
+#loading-stroke(@dasharray;@dashoffset){
+    stroke-dasharray: @dasharray;
+    stroke-dashoffset: @dashoffset;
+}
+// 普通类加载
+.vg-loading{
+    --loading-width:42px;
+    --loading-bordersize:2px;
+    --loading-color:@color-brand-1;
+
+    //设置元素的继承父级的宽高
+    #position(absolute;0;0;0;0;100%;100%);
+    margin: auto;
+    background-color: rgba(255,255,255,.88);
+
+    &-content{
+        #position(absolute;50%;auto;auto;auto;100%;auto);
+        text-align: center;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        z-index: 9;
+        &::after{
+            content: attr(date-attr);
+            display: block;
+
+            //设置元素位置为底部切边
+            #position(absolute;auto;auto;calc(0 - #space[exsmall];);50%;auto;auto);
+            transform: translate(-50%,100%);
+            color: @color-font-3;
+        }
+    }
+    &-circular{
+        display: inline;
+        height: 50px;
+        width: 50px;
+        animation: loading-svg-rotate 2s linear infinite;
+        .path{
+            animation: loading-svg-dash 1.5s ease-in-out infinite;
+            stroke-dasharray: 90,150;
+            stroke-dashoffset: 0;
+            stroke-width: 2;
+            stroke: @color-brand-1;
+            stroke-linecap: round;
+        }
+    }
+}
+
+
+// 升级类加载
+.vg-loadingall{
+    position: relative;
+    // #flex.middle();
+
+    // 版本一
+    > *:not(svg){
+        word-wrap: break-word;
+        #funFont(#font.font12();@color-font-2;normal;center);
+
+        background-color: rgba(black,.06);
+    }
+
+    //svg加载
+    &-svg{
+        #position(absolute;50%;auto;auto;50%;100%;auto);
+        #flex.row();
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        white-space: nowrap;
+        transform: translate(-50%,-50%);
+        &::after{
+            content: attr(date-attr);
+            #funFont(#font.font14();@color-font-2;normal;center);
+            display: block;
+            width: 100%;
+            margin-top: 8px;
+        }
+        .vg-loadingall-circular{
+            // display: inline;
+            display: block;
+            overflow: initial;
+            height: 50px;
+            width: 50px;
+            animation: loading-svg-rotate 2s linear infinite;
+            .path{
+                stroke-dasharray: 90,150;
+                stroke-dashoffset: 0;
+                stroke-width: 2;
+                stroke: @color-brand-1;
+                stroke-linecap: round;
+                animation: loading-svg-dash 1.5s ease-in-out infinite;
+            }
+        }
+    }
+    // 省略号加载
+    &-ellipsis{
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+        &::after{
+            content: "...";
+            display: inline-block;
+            animation: loadingall-ellipsis 1.2s steps(4,jump-none) infinite;
+        }
+        
+    }
+    // 边框加载
+    &-border{
+        --vg-loadingall-border-width:var(--vg-loadingall-border-w);
+        color: @color-font-2; 
+        border: calc(var(--vg-loadingall-border-width) * 0.1) solid;
+        border-right-color: transparent;
+        display: inline-block;
+        width: var(--vg-loadingall-border-width);
+        height: var(--vg-loadingall-border-width);
+        border-radius:50%;
+        vertical-align: .125em; 
+        animation: .75s linear infinite loadingall-border;
+    }
+    //loader加载
+    &-loader{
+        --vg-loadingall-loader-width:var(--vg-loadingall-loader-w);
+        --vg-loadingall-loader-height:calc(var(--vg-loadingall-loader-w) * 10/50);
+        --vg-loadingall-loader-times:calc(.8s + var(--vg-loadingall-loader-t) * 1/50);
+        #border_radius(var(--vg-loadingall-loader-width);var(--vg-loadingall-loader-height);@color-brand-1;var(--border-radius-maxsize);)!important;
+        position: absolute;
+        top: 50%;
+        left: calc(50% - var(--vg-loadingall-loader-width) * 40/50);
+        transform: translate(-50%, -50%);
+        animation: loadingall-loader var(--vg-loadingall-loader-times) ease-in-out infinite;
+        &::before,
+        &::after{
+            content: "";
+            position: absolute;
+            height: var(--vg-loadingall-loader-height);
+            border-radius: var(--border-radius-maxsize);
+            animation: loadingall-loader var(--vg-loadingall-loader-times) ease-in-out infinite;
+        }
+        &::before{
+            top: calc(var(--vg-loadingall-loader-height) * -2);
+            left: var(--vg-loadingall-loader-height);
+            width: calc(var(--vg-loadingall-loader-width) * 40/50);
+            background: @color-error-1;
+        }
+        &::after{
+            bottom: calc(var(--vg-loadingall-loader-height) * -2);
+            width: calc(var(--vg-loadingall-loader-width) * 35/50);
+            background: @color-warn-1;
+        }
+         
+    }
+    //小圆点加载
+    &-dot{
+        --vg-loadingall-dot-width:var(--vg-loadingall-dot-w);
+        width: var(--vg-loadingall-dot-width);
+        height: var(--vg-loadingall-dot-width);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: auto;
+        filter: url('#goo');
+        animation: loadingall-dot-rotate-move 2s ease-in-out infinite;
+        .dot{
+            #flex.middle();
+            color: #000;
+            width: calc(var(--vg-loadingall-dot-width) * 60/150);
+            height: calc(var(--vg-loadingall-dot-width) * 60/150);
+            // border-radius: 50%;
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            &-3{
+                background-color: @color-error-1;
+                animation: loadingall-dot-3-move 2s ease infinite, loadingall-dot-index 6s ease infinite;
+            }
+            &-2{
+                background-color: @color-brand-1;
+                animation: loadingall-dot-2-move 2s ease infinite, loadingall-dot-index 6s -4s ease infinite;
+            }
+            &-1{
+                background-color: @color-warn-1;
+                animation: loadingall-dot-1-move 2s ease infinite, loadingall-dot-index 6s -2s ease infinite; 
+            }
+        }
+    }
+    //波纹加载
+    &-bar{
+        --vg-loadingall-bar-height:var(--vg-loadingall-bar-h);
+        display: inline-flex;
+        column-gap: 0.25rem;
+        .line {
+            height: var(--vg-loadingall-bar-height);
+            width: calc(var(--vg-loadingall-bar-height) * 4/20);
+            background: @color-font-3;
+            border-radius: var(--border-radius-maxsize);
+            animation: loadingall-bar-line-bounce 1s infinite ease-in-out,;
+            &:nth-child(1) { animation-delay: 0s; }
+            &:nth-child(2) { animation-delay: 0.2s; }
+            &:nth-child(3) { animation-delay: 0.3s; }
+            &:nth-child(4) { animation-delay: 0.4s; }
+          }
+    }
+    //弹跳加载
+    &-wrapper{
+        --vg-loadingall-wrapper-width:var(--vg-loadingall-wrapper-w);
+        --vg-loadingall-wrapper-height:calc(var(--vg-loadingall-wrapper-width) * 60/200);
+        position: relative;
+        width:var(--vg-loadingall-wrapper-width);
+        height:var(--vg-loadingall-wrapper-height);
+        padding-bottom: calc(var(--vg-loadingall-wrapper-width) / 10);
+        box-sizing: content-box;
+        
+        // position: absolute;
+        // left:50%;
+        // top:50%;
+        // transform: translate(-50%, -50%);
+        &::after{
+            content: attr(vg-loadingall-wrapper-data);
+            position: absolute;
+            top:100%;
+            font-size: calc(var(--vg-loadingall-wrapper-width) / 10);
+            color: @color-font-2;
+            transform: translate(-50%,0);
+        }
+        .circle{
+            #border_radius(calc(var(--vg-loadingall-wrapper-width) / 10);
+            calc(var(--vg-loadingall-wrapper-width) / 10);
+            @color-font-zero;
+            var(--border-radius-maxsize);
+            );
+            position: absolute;
+
+            // width:20px;
+            // height:20px;
+
+            left:15%;
+            transform-origin: 50%;
+            animation: loadingall-wrapper-circle .45s alternate infinite ease;
+            &:nth-child(2){
+                left: 45%;
+                animation-delay: .2s;
+            }
+            &:nth-child(3){
+                left: auto;
+                right: 15%;
+                animation-delay: .3s;
+            }
+        }
+        .shadow{
+            #border_radius(calc(var(--vg-loadingall-wrapper-width) / 10);
+            calc(var(--vg-loadingall-wrapper-width) / 50);
+            rgba(@color-font-zero,.2);
+            var(--border-radius-maxsize);
+            );
+            // width:20px;
+            // height:4px;
+
+            position: absolute;
+            top:var(--vg-loadingall-wrapper-height); //62
+            left:15%;
+
+            transform-origin: 50%;
+            filter: blur(1px);
+            // z-index: -1;
+            animation: loadingall-wrapper-shadow .5s alternate infinite ease;
+            &:nth-child(4){
+                left: 45%;
+                animation-delay: .2s;
+            }
+            &:nth-child(5){
+                left: auto;
+                right: 15%;
+                animation-delay: .3s;
+            }
+        }
+
+    }
+    //呼吸加载
+    &-wave{
+        --loadingall-wave-width:var(--loadingall-wave-w);
+        position: relative;
+        width: var(--loadingall-wave-width);
+        height: var(--loadingall-wave-width);
+        border-radius: var(--border-radius-maxsize);
+        opacity: 1;
+        &::before,
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            border-radius: var(--border-radius-maxsize);
+            border: 1px solid @color-font-2;
+        }
+        &::before{
+            transform: scale(1);
+            opacity: 1;
+            animation: loadingall-wave-outer .8s infinite linear;
+            
+        }
+        &::after{
+            transform: scale(0);
+            opacity: 0;
+            animation: loadingall-wave-inner .8s infinite linear;
+            
+        }
+
+    }
+
+
+
+
+    //ces
+    &-ceshi{
+        svg{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        path.path {
+            stroke: rgb(64, 9, 215);
+            stroke-width: 6;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            stroke-dasharray: 193.904983521;
+            fill: none;
+            animation:
+              load 4s linear infinite,
+              color 4s linear infinite;
+        }
+    }
+    
+
+    
+    
+}
+
+
+//省略号加载动画
+@keyframes loadingall-ellipsis{
+    0% {transform: translateX(-100%)}
+}
+
+//边框加载动画
+@keyframes loadingall-border{
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+//loader加载动画
+@keyframes loadingall-loader {
+    0% {
+        transform: translateX(calc(var(--vg-loadingall-loader-width) * 40/50));
+    }
+    50% {
+        transform: translateX(calc(var(--vg-loadingall-loader-width) * -30/50));
+    }
+    100% {
+        transform: translateX(calc(var(--vg-loadingall-loader-width) * 40/50));
+    }
+}
+
+//小圆点加载动画
+@keyframes loadingall-dot-3-move {
+    20% {transform: scale(1)}
+    45% {transform: translateY(calc(var(--vg-loadingall-dot-width) * -18/150)) scale(.45)}
+    60% {transform: translateY(calc(var(--vg-loadingall-dot-width) * -90/150)) scale(.45)}
+    80% {transform: translateY(calc(var(--vg-loadingall-dot-width) * -90/150)) scale(.45)}
+    100% {transform: translateY(0px) scale(1)}
+}
+@keyframes loadingall-dot-2-move {
+    20% {transform: scale(1)}
+    45% {transform: translate(calc(var(--vg-loadingall-dot-width) * -16/150), calc(var(--vg-loadingall-dot-width) * 16/150)) scale(.45)}
+    60% {transform: translate(calc(var(--vg-loadingall-dot-width) * -80/150), calc(var(--vg-loadingall-dot-width) * 60/150)) scale(.45)}
+    80% {transform: translate(calc(var(--vg-loadingall-dot-width) * -80/150), calc(var(--vg-loadingall-dot-width) * 60/150)) scale(.45)}
+    100% {transform: translateY(0px) scale(1)}
+}
+@keyframes loadingall-dot-1-move {
+    20% {transform: scale(1)}
+    45% {transform: translate(calc(var(--vg-loadingall-dot-width) * 16/150), calc(var(--vg-loadingall-dot-width) * 16/150)) scale(.45)}
+    60% {transform: translate(calc(var(--vg-loadingall-dot-width) * 80/150), calc(var(--vg-loadingall-dot-width) * 60/150)) scale(.45)}
+    80% {transform: translate(calc(var(--vg-loadingall-dot-width) * 80/150), calc(var(--vg-loadingall-dot-width) * 60/150)) scale(.45)}
+    100% {transform: translateY(0px) scale(1)}
+}
+@keyframes loadingall-dot-rotate-move {
+    55% {transform: translate(-50%, -50%) rotate(0deg)}
+    80% {transform: translate(-50%, -50%) rotate(360deg)}
+    100% {transform: translate(-50%, -50%) rotate(360deg)}
+}
+@keyframes loadingall-dot-index {
+    0%, 100% {z-index: 3}
+    33.3% {z-index: 2}
+    66.6% {z-index: 1}
+}
+
+//波纹加载动画
+@keyframes loadingall-bar-line-bounce {
+    0% { transform: scale(1); }
+    20% { transform: scale(1, 2); }
+    40% { transform: scale(1); }
+}
+
+//弹跳加载动画
+@keyframes loadingall-wrapper-circle{
+    0%{
+        top:var(--vg-loadingall-wrapper-height);
+        // height:4px;
+        height: calc(var(--vg-loadingall-wrapper-width) / 50);
+
+        // border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    40%{
+        // height:20px;
+
+        // width: calc(var(--vg-loadingall-wrapper-width) / 10);
+        height: calc(var(--vg-loadingall-wrapper-width) / 10);
+
+
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100%{
+        top:0%;
+    }
+}
+@keyframes loadingall-wrapper-shadow{
+    0%{
+        transform: scaleX(1.5);
+    }
+    40%{
+        transform: scaleX(1);
+        opacity: .7;
+    }
+    100%{
+        transform: scaleX(.2);
+        opacity: .4;
+    }
+}
+
+//呼吸灯加载动画
+@keyframes loadingall-wave-outer{
+    from{
+        opacity: 1;
+        transform: scale(1);
+    }
+    to{
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+@keyframes loadingall-wave-inner{
+    from{
+        opacity: 0;
+        transform: scale(.5);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
+
+
+// 测试动画
+@keyframes load {
+    from { stroke-dashoffset: 775.6199340820312; }
+}
+@keyframes color {
+    33% { stroke: rgb(199, 13, 94); }
+    66% { stroke: rgb(8, 182, 22); }
+}
+

@@ -1,0 +1,57 @@
+//
+//  定义flex网格系统方法
+//
+
+//基础felx方法
+.class-row(){
+    display: flex;
+    flex-wrap: wrap;
+    > *{
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.class-col(){
+    flex: 1 0 0%;
+    &-auto{
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
+
+
+
+//  定义flex网格系统类方法
+.calc-grid-col(@idx, @class, @type) when (@type = width) and (@idx <= @grid-column) {
+    .col@{class}@{idx} {
+        flex:0 0 auto;
+        width: percentage((@idx / @grid-column));
+    }
+}
+.calc-grid-col(@idx, @class, @type) when (@type = order) and (@idx <= @grid-column) {
+    .col@{class}order-@{idx} {
+        order: @idx;
+    }
+}
+.calc-grid-col(@idx, @class, @type) when (@type = offset) and (@idx <= @grid-column) {
+    .col@{class}offset-@{idx} {
+        margin-left: percentage((@idx / @grid-column));
+    }
+}
+
+//  递减循环flex网格系统类方法
+.close-grid-col(@idx, @class, @type) when (@idx>0){
+    .calc-grid-col(@idx, @class, @type);
+    .close-grid-col((@idx - 1), @class, @type);
+    
+}
+
+//  生成flex网格系统类方法
+.grid-class(@class){
+    .close-grid-col(@grid-column, @class, width);
+    .close-grid-col(@grid-column, @class, order);
+    .close-grid-col(@grid-column, @class, offset);
+}
+

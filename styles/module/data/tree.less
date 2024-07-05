@@ -1,0 +1,112 @@
+/*
+ * Name:            Tree
+ * 
+ * Description:     结构树组件
+ * 
+ * Component:   `vg-tree`
+ * 
+ * Satus:        
+*/
+
+//结构树连接线公用样式
+#vgTreeWrap(@position;@borderLeft;@borderTop;){
+    @position();
+    content: "";
+    border-left: @borderLeft;
+    border-top: @borderTop;
+}
+
+
+.vg-tree{
+    --vg-tree-wrap-size:calc(50% - 0.5px);
+    --vg-tree-item-height:28px;
+    max-width: 100%;
+    padding:calc(#space[small];) 0 0;
+    &-hidden{
+        overflow-y: hidden;
+        height: 100%
+    }
+    &-item{
+        #flex.row();
+        height: var(--vg-tree-item-height);
+        padding:0 #space[base];
+        cursor: pointer;
+        &:hover{
+            background: @color-info-3;
+            border-radius:@border-radius-default ;
+            .toggle{#visibility(visible;1;);}
+        }
+        .icons{
+            #flex.middle();
+            #funFont(#font.font16();@color-font-3;normal;);
+            &.pi-hidden{display: none;}
+        }
+        >span{
+            #funFont(#font.font13();@color-font-1;normal;);
+            #textEllipsis();
+            flex: 1;
+            margin-inline-start: #space[exsmall];
+        }
+        .toggle{
+            #flex.row();
+            #funFont(#font.font16();@color-font-2;normal;);
+            #visibility(hidden;0;);
+            margin-inline-start: #space[base];
+        }
+    }
+    &-wrap{
+        #flex.row();
+        height: 100%;
+        >span{
+            #flex.row();
+            #border_radius(16px;100%;transparent;0;);
+            position: relative;
+        }
+        .shape-one{
+            &::before{
+                #vgTreeWrap(
+                    #position(absolute;calc(50% - 0.5px);auto;auto;calc(50% + 0.5px);calc(50% - 1px);auto;);
+                    none;
+                    1px dashed @color-border-1;
+                );
+            }
+            &::after{
+                #vgTreeWrap(
+                    #position(absolute;0;auto;auto;calc(50% - 0.5px);auto;calc(50% - 1px););
+                    1px dashed @color-border-1;
+                    none;
+                );
+            }
+        }
+        .shape-two{
+            &::before{
+                #vgTreeWrap(
+                    #position(absolute;calc(50% - 0.5px);auto;auto;calc(50% + 0.5px);calc(50% - 1px);auto;);
+                    none;
+                    1px dashed @color-border-1;
+                );
+
+            }
+            &::after{
+                #vgTreeWrap(
+                    #position(absolute;0;auto;auto;calc(50% - 0.5px);auto;calc(100% - 1px););
+                    1px dashed @color-border-1;
+                    none;
+                );
+            }
+        }
+        .shape-three{
+            &::after{
+                #vgTreeWrap(
+                    #position(absolute;0;auto;auto;calc(50% - 0.5px);auto;calc(100% - 1px););
+                    1px dashed @color-border-1;
+                    none;
+                );
+            }
+        }
+    }
+
+}
+
+
+

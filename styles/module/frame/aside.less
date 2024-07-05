@@ -1,0 +1,152 @@
+/*
+ * Name:            侧边栏结构
+ * 
+ * Description:    侧边栏结构模块
+ * 
+ * Component:   `vg-aside`
+ * 
+ * Satus:        
+ */
+
+/********** aside默认样式效果 **********/
+.vg-aside{
+  --vg-aside-border-color:@color-border-2;
+  #position(fixed;0;auto;0;auto;12.5rem;auto;);
+  display:flex;
+  margin-top:3.75rem;
+  ::-webkit-scrollbar{
+    display: none;
+  }
+  &:hover ::-webkit-scrollbar{ 
+    display: block; 
+  }
+  .aside-nav{
+    position: relative;
+    overflow:overlay;
+    height:100%;
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+ /************* 文档aside *************/
+ .aside-doc{
+   padding: calc(#space[large];) 0;
+   li{
+    font-size: @font-size-base !important;
+    cursor: pointer;
+    .link{
+      width: 100%;
+      font-size: @font-size-base;
+      line-height: 2.5rem; 
+      font-weight: @font-blod-default;
+      border-radius: @border-radius-default;
+      &:hover{
+        color: @color-brand-1 !important;
+        background-color: @color-brand-0;
+      }
+    }
+    
+   }
+   .active .link{
+    color:@color-brand-1;
+    font-weight: @font-blod-base;
+    background-color: @color-brand-0;
+  }
+   .item-list-title{
+    #flex.between();
+    #funFont(#font.font12();@color-font-4;@font-blod-default;);
+    margin-top: 0.625rem;
+    padding-right: 0.625rem;
+    line-height: 2.5rem;
+    text-transform:capitalize;
+    cursor: pointer;
+  }
+ }
+
+/************* 设计工具aside *************/
+.aside-info{
+  padding: calc(#space[large];) #space[base];
+  background: @color-bg-1;
+  z-index: 3;
+  .aside-nav{overflow:inherit;}
+  .aside-group{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .item1-list{
+      position: relative;
+      padding: calc(#space[default];) 0 #space[base];
+      margin:0 0 #space[base];
+      &::after{
+        #position(absolute;auto;auto;0;0;100%;1px;);
+        background:var(--vg-aside-border-color);
+      }
+    }
+    .aside-text{
+      #flex.row();
+      #funFont(#font.font14();@color-font-1;normal;);
+      height: 2.5rem;
+      padding: 0.625rem 0.75rem;
+      margin-bottom: #space[exsmall];
+      border-radius: @border-radius-default;
+      cursor: pointer;
+      transition: background-color .3s ease;
+      .line-h4{
+        #funFont(#font.font12();@color-font-1;normal;);
+        margin-right:#space[small];
+      }
+      &:hover{background-color:@color-bg-4;}
+    }
+    .aside-title{
+      #funFont(#font.font12();@color-font-3;normal;left;);
+      margin: 1rem 0 .25rem;
+      cursor: default;
+    }
+    
+  }
+  .asideNavbox{
+    overflow-y: auto;
+    flex: 1;
+    margin: calc(#space[small];) 0 0;
+    &::-webkit-scrollbar{display: none;}
+    .item-list{
+      margin-block-end: 0 !important;
+      padding-bottom: 0 !important;
+      &:nth-child(1)::after{display: none;}
+      > li > a{
+        grid-template-columns: 1.25rem 1fr 1.25rem;
+        &::before{
+          #flex.middle();
+          #funFont(#font.font32();@color-border-1;@font-blod-large;);
+          #border_radius(5px;5px;@color-border-1;var(--border-radius-maxsize););
+          margin: auto;
+          content:'';
+        }
+        &:hover{
+          &::before{background: @color-brand-3;}
+          .editbtn{#visibility(visible;1;);}
+        }
+        .editbtn{
+          #visibility(hidden;0;);
+          #flex.row();
+          margin-inline-start: #space[exsmall];
+          color: @color-border-1;
+          cursor: pointer;
+        }
+      }
+    }
+    .item-addproject{
+      #flex.row();
+      #funFont(#font.font14();@color-font-4;normal;);
+      height: 2.625rem;
+      padding: 0 #space[base];
+      border-radius: @border-radius-large;
+      cursor: pointer;
+      user-select: none;
+      &:active{
+        background: @color-border-3;
+      }
+    }
+  }
+}

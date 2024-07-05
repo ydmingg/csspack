@@ -1,0 +1,19 @@
+
+//面包屑导航
+.vg-breadcrumb{
+    #flex.row();
+    &-items{
+        #flex.row();
+        #funFont(#font.font14();@color-font-1;500;);
+        >p{cursor: pointer;}
+        .label{
+            #funFont(#font.font14();@color-font-3;normal;);
+            cursor: default;
+        }
+        >span{
+            margin: 0 #space[small];
+            color:@color-font-3;
+            cursor: default;
+        }
+    }
+}

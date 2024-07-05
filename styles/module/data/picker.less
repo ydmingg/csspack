@@ -1,0 +1,202 @@
+//
+//***************************** 日期选择
+//
+.vg-picker{
+    #funFont(#font.font14();@color-font-1;normal;);
+    padding: 4px 11px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    // background: @color-font-white;
+    border: 1px solid @color-border-2;
+    border-radius: 3px;
+    transition: border .3s,box-shadow .3s;
+    &:hover{
+        border-color: @color-brand-1;
+        border-right-width: 1px;
+        .vg-picker-clear{
+            opacity: 1;
+        }
+    }
+    &-input{
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+        >input{
+            #funFont(#font.font14();@color-font-1;normal;);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            min-width: 1px;
+            background-color: @color-font-white;
+            background-image: none;
+            border-radius: 2px;
+            border: 0;
+            transition: all .3s;
+        }
+    }
+    &-icons{
+        align-items: center;
+        padding: 0 8px;
+        line-height: 1;
+        color:@color-font-4;
+    }
+    &-suffix{
+        #flex.row();
+        flex: none;
+        margin-left: 4px;
+        color: @color-font-4;
+        line-height: 1;
+        pointer-events: none;
+    }
+    &-clear{
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        color: @color-font-4;
+        line-height: 1;
+        background: @color-font-white;
+        transform: translateY(-50%);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity .3s,color .3s;
+    }
+    //弹出层
+    &-dropdown{
+        #funFont(#font.font14();@color-font-1;normal;);
+        position: absolute;
+        left: 0px;
+        top: 32px;
+        padding:12px 0;
+        z-index: 11;
+        .vg-picker-container{
+            overflow: hidden;
+            display: inline-flex;
+            flex-wrap: nowrap;
+            vertical-align: top;
+            background: @color-font-white;
+            border-radius: 6px;
+            box-shadow: @border-shadow-default;
+            transition: margin .3s;
+        }
+        //日期面板
+        .vg-picker-panel{
+            display: flex;
+            flex-direction: column;
+            width: 280px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,.06);
+            // 年份面板
+            &.year,&.month{
+                .vg-picker-col-text{
+                    width: 60px;
+                    padding: 0 8px;
+                }
+                .vg-picker-table{
+                    height: 100%;
+                }
+            }
+            .vg-picker-table th{width: 36px;}
+        }
+        .vg-picker-header{
+            display: flex;
+            padding: 0 8px;
+            color: @color-font-1;
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            &-button{
+                #funFont(#font.font16();@color-font-4;normal;);
+                min-width: 1.6em;
+                cursor: pointer;
+                &:hover{color: @color-font-1;}
+            }
+            &-view{
+                flex: auto;
+                font-weight: 500;
+                line-height: 40px;
+                >button:not(:first-child){
+                    margin-left: 12px;
+                }
+            }
+        }
+        .vg-picker-body{
+            padding: 8px 12px;
+            flex: 1;
+        }
+        .vg-picker-table{
+            width: 100%;
+            th,td{
+                position: relative;
+                min-width: 24px;
+                font-weight: 400;
+                text-align: center;
+            }
+            th{
+                height: 30px;
+                color: @color-font-4;
+                line-height: 30px;
+            }
+        }
+        .vg-picker-col{
+            padding: 3px 0;
+            color: @color-font-4;
+            cursor: pointer;
+            &::before{
+                #position(absolute;50%;0;auto;0;auto;24px;);
+                content: "";
+                transform: translateY(-50%);
+                transition: all .3s;
+                z-index: 1;
+            }
+            &:hover:not(.ending,.range) .vg-picker-col-text{
+                background: @color-info-3;
+            }
+            //当月日期
+            &.view{
+                color: @color-font-1;
+                // 前后定点
+                &.start::before{
+                    left: 50%;
+                    background:@color-brand-0;
+                }
+                &.ending::before{
+                    right: 50%;
+                    background:@color-brand-0;
+                }
+                &.start,&.ending,&.select{
+                    .vg-picker-col-text{
+                        color: @color-font-white;
+                        background: @color-brand-1;
+                        &:hover{
+                            color: @color-font-white;
+                            background: @color-brand-1;
+                        }
+                    } 
+                }
+                // 筛选范围
+                &.range::before{background: @color-brand-0}
+                // 当日
+                &.today .vg-picker-col-text::before{
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    border: 1px solid @color-brand-1;
+                    border-radius: 2px;
+                    z-index: 1;
+                }
+            }
+        }
+        .vg-picker-col-text{
+            position: relative;
+            display: inline-block;
+            min-width: 24px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 2px;
+            transition: background .3s,border .3s;
+            z-index:2;
+        }
+    }
+}
+
